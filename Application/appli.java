@@ -7,7 +7,7 @@ import table.Plateau;
 import table.Roi;
 import table.Tour;
 
-//ahmad
+
 
 
 public class appli {

@@ -1,10 +1,15 @@
 package table;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Plateau {
     public static final int lignes = 8;
     public static final int colonnes = 8;
 
     private final Pièces[][] plateau;
+
+    private ArrayList<Pièces> piècesPlateau = new ArrayList<>();
 
     /**
      * Constructeur de la classe Plateau
@@ -17,6 +22,9 @@ public class Plateau {
             }
         }
     }
+
+
+
 
 
     public void putPièce(Pièces p){

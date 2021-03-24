@@ -1,22 +1,23 @@
 package Application;
 
 
-import table.Pièces;
-
+import table.Pièce;
 import table.Plateau;
-import table.Roi;
-import table.Tour;
-
-
+import table.Type;
 
 
 public class appli {
     public static void main(String[] args) {
         Plateau p = new Plateau();
 
-        p.ajouterPièce(5,1);
 
+        p.ajouterPièce(5,1, Pièce.Couleur.NOIR, Type.r);
+
+        p.jouerPièce(5,1,1,1);
         //p.jouerPièce();
+
+        p.jouerPièce(1,1,8,1);
+        //jouer(x,y)
 
 
 

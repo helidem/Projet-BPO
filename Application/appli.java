@@ -19,7 +19,7 @@ public class appli {
         p.jouerPièce(1,1,8,1);
         //jouer(x,y)
 
-
+        p.jouerPièce(8,1,5,5);
 
 
         //plateau.jouer(piece, coordX, coordY)

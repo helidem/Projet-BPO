@@ -7,6 +7,9 @@ import table.Plateau;
 import table.Roi;
 import table.Tour;
 
+//ahmad   sddgsgzsedg
+
+
 public class appli {
     public static void main(String[] args) {
         Plateau p = new Plateau();
@@ -14,7 +17,6 @@ public class appli {
         Pièces p1 = new Pièces('P', 1,1);
 
         p.putPièce(p1);
-
         //System.out.println(p1.toString());
         p.removePièce(p1);
         p1.jouer(1,2);

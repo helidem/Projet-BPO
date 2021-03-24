@@ -9,7 +9,7 @@ public class Plateau {
 
     private final Pièces[][] plateau;
 
-    private ArrayList<Pièces> piècesPlateau = new ArrayList<>();
+    private ArrayList<Pièces> piècesPlateau;
 
     /**
      * Constructeur de la classe Plateau
@@ -21,10 +21,36 @@ public class Plateau {
                 plateau[l][c] = new Pièces();
             }
         }
+        this.piècesPlateau = new ArrayList<Pièces>();
     }
 
+    public void ajouterPièce(int coordX , int coordY){
+        Pièces p = new Pièces('P',coordX,coordY);
+        putPièce(p);
+        piècesPlateau.add(p);
+    }
+    public void ajouterRoi(int coordX , int coordY){
+        Pièces p = new Roi('R',coordX,coordY);
+        putPièce(p);
+    }
+    public void ajouterTour(int coordX , int coordY){
+        Pièces p = new Tour('T',coordX,coordY);
+        putPièce(p);
+    }
+    public void jouerPièce(int oldCoordX, int oldCoordY, int coordX ,int coordY){
+        for (Pièces p : piècesPlateau){
+            if(p.getCoordX == )
+        }
+     }
 
 
+    public void jouer(Pièces p, int coordX, int coordY)
+    {
+        //faire les tests
+
+        removePièce(p);
+        putPièce(p, coordX, coordY);
+    }
 
 
     public void putPièce(Pièces p){

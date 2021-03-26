@@ -1,6 +1,7 @@
 package table;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Plateau {
    //private enum {}
@@ -22,14 +23,22 @@ public class Plateau {
                 plateau[l][c] = new Pièce();
             }
         }
-        this.pièceNoir = new ArrayList<Pièce>();
+        this.pièceNoir = new ArrayList<>();
+        this.pièceBlanc =new ArrayList<>();
     }
 
     public void ajouterPièce(int coordX , int coordY, Pièce.Couleur c , Type t){
         Pièce p = new Pièce(coordX,coordY, c, t);
         put(p, coordX, coordY);
-        pièceNoir.add(p);
+
+        if(c == Pièce.Couleur.NOIR){
+            pièceNoir.add(p);
+        }
+        else {
+            pièceBlanc.add(p);
+        }
     }
+
     /*public void ajouterRoi(int coordX , int coordY){
         Pièces p = new Roi(coordX,coordY,);
         put(p, coordX, coordY);

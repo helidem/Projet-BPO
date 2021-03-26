@@ -11,15 +11,15 @@ public class appli {
         Plateau p = new Plateau();
 
 
-        p.ajouterPièce(5,1, Pièce.Couleur.NOIR, Type.r);
-
-        p.jouerPièce(5,1,1,1);
+        p.ajouterPièce(4,1, Pièce.Couleur.BLANC, Type.r);
+        p.ajouterPièce(4,2, Pièce.Couleur.NOIR, Type.r);
+       //p.jouerPièce(4,1,5,2);
         //p.jouerPièce();
 
-        p.jouerPièce(1,1,8,1);
+
         //jouer(x,y)
 
-        p.jouerPièce(8,1,5,5);
+
 
 
         //plateau.jouer(piece, coordX, coordY)

@@ -58,8 +58,11 @@ public class Pièce {
     }*/
 
     public String getType(int coordX , int coordY){
-        if(this.coordX == coordX || this.coordY == coordY){
-            return this.type.name();
+        if((this.coordX == coordX || this.coordY == coordY)){
+            if(this.couleur == Couleur.NOIR)
+                return this.type.name();
+            else
+                return this.type.name().toUpperCase();
         }
         return " ";
 

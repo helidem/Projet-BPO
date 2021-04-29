@@ -1,7 +1,7 @@
 package Application;
 
 
-import table.Pièce;
+import piece.Pièce;
 import table.Plateau;
 import table.Type;
 
@@ -13,8 +13,13 @@ public class appli {
 
         p.ajouterPièce(4,1, Pièce.Couleur.BLANC, Type.r);
         p.ajouterPièce(4,2, Pièce.Couleur.NOIR, Type.r);
-       //p.jouerPièce(4,1,5,2);
-        //p.jouerPièce();
+
+        //Piece r = new Roi(3,5,b);
+
+
+
+        //p.jouerPièce(4,1,5,2);
+        // p.jouerPièce();
 
 
         //jouer(x,y)

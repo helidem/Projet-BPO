@@ -1,6 +1,6 @@
 package joueur;
 
-import table.Pièce;
+import piece.Pièce;
 
 import java.util.ArrayList;
 /*

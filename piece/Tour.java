@@ -1,4 +1,6 @@
-package table;
+package piece;
+
+import table.Type;
 
 public class Tour extends Pièce
 {

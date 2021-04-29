@@ -1,12 +1,17 @@
 package table;
 
+import piece.IPIece;
+import piece.Pièce;
+import piece.Roi;
+
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Plateau {
    //private enum {}
     public static final int lignes = 8;
     public static final int colonnes = 8;
+
+
 
     private final Pièce[][] plateau;
 
@@ -24,20 +29,26 @@ public class Plateau {
             }
         }
         this.pièceNoir = new ArrayList<>();
-        this.pièceBlanc =new ArrayList<>();
+        this.pièceBlanc = new ArrayList<>();
+
     }
 
-    public void ajouterPièce(int coordX , int coordY, Pièce.Couleur c , Type t){
-        Pièce p = new Pièce(coordX,coordY, c, t);
+    public void ajouterPièce(int coordX , int coordY){
+
+      Pièce p = new Roi(1,1, Pièce.Couleur.BLANC);
+
         put(p, coordX, coordY);
 
-        if(c == Pièce.Couleur.NOIR){
+        if(p.getCouleur() == Pièce.Couleur.NOIR){
             pièceNoir.add(p);
         }
         else {
             pièceBlanc.add(p);
         }
     }
+
+
+
 
     /*public void ajouterRoi(int coordX , int coordY){
         Pièces p = new Roi(coordX,coordY,);
@@ -99,7 +110,7 @@ public class Plateau {
         for (int l=lignes ; l>0 ; --l ){
             s.append(l + " | ");
             for(int c=1 ; c<=colonnes ; ++c){
-                s.append(plateau[c][l].getType(c,l));
+                s.append(plateau[c][l].type());
                 s.append(" | ");
             }
 

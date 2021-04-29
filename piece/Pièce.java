@@ -1,32 +1,28 @@
-package table;
+package piece;
 
-public class Pièce {
+import table.Type;
+
+public class  Pièce implements IPIece {
     public enum Couleur {BLANC,NOIR}
 
-
-    private Type type;
-    private char pièceNom;
     private int coordX;
     private int coordY;
-    private Couleur couleur;
 
     private int oldCoordX;
     private int oldCoordY;
 
-    public Pièce(int coordX, int coordY, Couleur c, Type t){
+    public Pièce(int coordX, int coordY){
         assert coordX > 0 && coordY > 0;
         assert coordX < 9 && coordY < 9;
-        this.couleur = c;
-        this.type = t;
-       // this.pièceNom = pièceNom;
+
+
         this.coordX = coordX;
         this.coordY = coordY;
     }
 
-    public Pièce() {
+    public Pièce(){
 
     }
-
 
     public int getCoordX(){
         return this.coordX;
@@ -57,7 +53,7 @@ public class Pièce {
         return ' ';
     }*/
 
-    public String getType(int coordX , int coordY){
+   /* public String getType(int coordX , int coordY){
         if((this.coordX == coordX || this.coordY == coordY)){
             if(this.couleur == Couleur.NOIR)
                 return this.type.name();
@@ -66,11 +62,9 @@ public class Pièce {
         }
         return " ";
 
-    }
+    }*/
 
-    public Couleur getCouleur() {
-        return couleur;
-    }
+
 
     public void setCoordX(int coordX) {
         this.coordX = coordX;

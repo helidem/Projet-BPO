@@ -20,6 +20,7 @@ public class Roi extends Pièce { //un roi est une pièce
 
     }
     public String type(){
+
         String s = "";
         return (c.name() == "BLANC") ? "R" : "r";
     }

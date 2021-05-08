@@ -65,6 +65,9 @@ public class  Pièce implements IPIece {
     }*/
 
 
+    public String type(){
+        return null;
+    }
 
     public void setCoordX(int coordX) {
         this.coordX = coordX;

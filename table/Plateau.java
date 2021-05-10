@@ -1,65 +1,31 @@
 package table;
 
-import piece.IPIece;
+import piece.Couleur;
 import piece.Pièce;
 import piece.Roi;
 
 import java.util.ArrayList;
 
 public class Plateau {
-   //private enum {}
+
     public static final int lignes = 8;
     public static final int colonnes = 8;
 
 
 
-    private final Pièce[][] plateau;
+    private Pièce[][] plateau;
 
-    private ArrayList<Pièce> pièceNoir;
+    private ArrayList<Pièce> pièceNoir; //a enlever t mettre dans joueur
     private ArrayList<Pièce> pièceBlanc;
 
     /**
      * Constructeur de la classe Plateau
      */
     public Plateau() {
-        plateau = new Pièce[lignes+1][colonnes+1];
-        for (int l=lignes ; l>0 ; --l ){
-            for(int c=1 ; c<=colonnes ; ++c){
-                plateau[l][c] = new Pièce();
-            }
-        }
-        this.pièceNoir = new ArrayList<>();
-        this.pièceBlanc = new ArrayList<>();
-
+        plateau = new Pièce[lignes][colonnes];
     }
 
-    public void ajouterPièce(int coordX , int coordY){
-
-      Pièce p = new Roi(1,1, Pièce.Couleur.BLANC);
-
-        put(p, coordX, coordY);
-
-        if(p.getCouleur() == Pièce.Couleur.NOIR){
-            pièceNoir.add(p);
-        }
-        else {
-            pièceBlanc.add(p);
-        }
-    }
-
-
-
-
-    /*public void ajouterRoi(int coordX , int coordY){
-        Pièces p = new Roi(coordX,coordY,);
-        put(p, coordX, coordY);
-    }
-    public void ajouterTour(int coordX , int coordY){
-        Pièces p = new Tour('T',coordX,coordY);
-        put(p, coordX, coordY);
-    }*/
-
-    public void jouerPièce(int actuelCoordX, int actuelCoordY, int coordX ,int coordY){
+    public void jouerPièce(int actuelCoordX, int actuelCoordY, int coordX ,int coordY){ //interessant
         assert coordX > 0 && coordY > 0 && actuelCoordX > 0 && actuelCoordY > 0;
         assert coordX < 9 && coordY < 9 && actuelCoordX < 9 && actuelCoordY < 9;
         for (Pièce p : pièceNoir){
@@ -71,16 +37,26 @@ public class Plateau {
         // Une exception si on trouve pas la pièce
      }
 
-
     public void jouer(Pièce p, int coordX, int coordY)
     {
         //faire les tests
-        memorise(p);
-        removePièce(p);
+        //memorise(p);
+        //removePièce(p);
+
+        System.out.println(p.getCoordX() + " " + p.getCoordY());
+
+        if (p.coupLegal(coordX, coordY, this) == false)
+            return;
+
         put(p, coordX, coordY);
     }
 
-    public void memorise(Pièce p)
+    public Pièce getPièce(int x,int y){
+        return plateau[x][y];
+    }
+
+
+    private void memorise(Pièce p)
     {
         p.setOldCoordX(p.getCoordX());
         p.setOldCoordY(p.getCoordY());
@@ -99,7 +75,7 @@ public class Plateau {
         plateau[p.getCoordX()][p.getCoordY()] = p;
     }
 
-    public void removePièce(Pièce p) { plateau[p.getCoordX()][p.getCoordY()] = new Pièce(); }
+    private void removePièce(Pièce p) { plateau[p.getCoordX()][p.getCoordY()] = null; }
 
     public String toString(){
 
@@ -107,17 +83,18 @@ public class Plateau {
         s.append("    a   b   c   d   e   f   g   h    \n");
         s.append("   --- --- --- --- --- --- --- ---\n");
 
-        for (int l=lignes ; l>0 ; --l ){
-            s.append(l + " | ");
-            for(int c=1 ; c<=colonnes ; ++c){
-                s.append(plateau[c][l].type());
+        for (int l=lignes-1 ; l>=0 ; --l ){
+            s.append(l+1 + " | ");
+            for(int c=0 ; c<colonnes ; ++c){
+                if (plateau[c][l] != null)
+                    s.append(plateau[c][l].type());
+                else s.append(" ");
                 s.append(" | ");
             }
 
-            s.append(l).append("\n");
+            s.append(l+1).append("\n");
             s.append("   --- --- --- --- --- --- --- ---\n");
         }
-        //s.append("   --- --- --- --- --- --- --- ---      \n");
         s.append("    a   b   c   d   e   f   g   h    \n");
 
         return s.toString();

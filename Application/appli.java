@@ -1,9 +1,11 @@
 package Application;
 
 
+import piece.Couleur;
 import piece.Pièce;
+import piece.Roi;
+import piece.Tour;
 import table.Plateau;
-import table.Type;
 
 
 public class appli {
@@ -11,30 +13,24 @@ public class appli {
         Plateau p = new Plateau();
 
 
-        p.ajouterPièce(4,1, Pièce.Couleur.BLANC, Type.r);
-        p.ajouterPièce(4,2, Pièce.Couleur.NOIR, Type.r);
+        //saisie -> analyse de la saisie -> transformer la saisie en coup/coord -> jouer(.....) t'as capté => si erreur : aie
 
-        //Piece r = new Roi(3,5,b);
+        Pièce r = new Roi(4,5,Couleur.BLANC);
+        Pièce t = new Tour(4,1,Couleur.NOIR);
+        Pièce t1 = new Tour(4,3,Couleur.NOIR);
 
+        p.put(r,r.getCoordX(), r.getCoordY());
+        p.put(t,t.getCoordX(),t.getCoordY());
+        p.put(t1,t1.getCoordX(),t1.getCoordY());
 
-
-        //p.jouerPièce(4,1,5,2);
-        // p.jouerPièce();
-
-
-        //jouer(x,y)
-
+        System.out.println(p);
 
 
+        p.jouer(t,4,3);
 
-        //plateau.jouer(piece, coordX, coordY)
-
+        System.out.println(p);
 
 
 
-
-        //System.out.println("old X "+r.getOldCoordX());System.out.println("old Y "+r.getOldCoordY());
-        //System.out.println("X "+r.getCoordX());System.out.println("Y "+r.getCoordY());
-        System.out.println(p.toString());
     }
 }

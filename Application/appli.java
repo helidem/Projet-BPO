@@ -26,7 +26,7 @@ public class appli {
         System.out.println(p);
 
 
-        p.jouer(t,9,5);
+        p.jouer(r,4,5);
 
         System.out.println(p);
 

@@ -68,4 +68,8 @@ public abstract class  Pièce implements IPièce {
     public String type(){
         return (couleur == Couleur.BLANC) ? type.toUpperCase() : type;
     }
+
+    private void manger(int x, int y, Plateau p){
+
+    }
 }

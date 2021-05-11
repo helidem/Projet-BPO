@@ -15,8 +15,8 @@ public class appli {
 
         //saisie -> analyse de la saisie -> transformer la saisie en coup/coord -> jouer(.....) t'as capté => si erreur : aie
 
-        Pièce r = new Roi(4,5,Couleur.BLANC);
-        Pièce t = new Tour(4,1,Couleur.NOIR);
+        Pièce r = new Roi(4,5,Couleur.BLANC); //ça commence a partir de 0 donc 0 = 1 ou a etc... et 7 = 8 ou h donc (4,5) =>e6
+        Pièce t = new Tour(6,5,Couleur.NOIR);
         Pièce t1 = new Tour(4,3,Couleur.NOIR);
 
         p.put(r,r.getCoordX(), r.getCoordY());
@@ -26,7 +26,7 @@ public class appli {
         System.out.println(p);
 
 
-        p.jouer(t,4,3);
+        p.jouer(t,9,5);
 
         System.out.println(p);
 

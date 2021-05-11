@@ -1,9 +1,7 @@
 package table;
 
-import piece.Couleur;
-import piece.Pièce;
-import piece.Roi;
 
+import piece.Pièce;
 import java.util.ArrayList;
 
 public class Plateau {
@@ -41,7 +39,7 @@ public class Plateau {
     {
         //faire les tests
         //memorise(p);
-        //removePièce(p);
+
 
         System.out.println(p.getCoordX() + " " + p.getCoordY());
 
@@ -49,6 +47,7 @@ public class Plateau {
             return;
 
         put(p, coordX, coordY);
+        removePièce(p);
     }
 
     public Pièce getPièce(int x,int y){
@@ -78,7 +77,6 @@ public class Plateau {
     private void removePièce(Pièce p) { plateau[p.getCoordX()][p.getCoordY()] = null; }
 
     public String toString(){
-
         StringBuilder s = new StringBuilder();
         s.append("    a   b   c   d   e   f   g   h    \n");
         s.append("   --- --- --- --- --- --- --- ---\n");
@@ -91,14 +89,10 @@ public class Plateau {
                 else s.append(" ");
                 s.append(" | ");
             }
-
             s.append(l+1).append("\n");
             s.append("   --- --- --- --- --- --- --- ---\n");
         }
         s.append("    a   b   c   d   e   f   g   h    \n");
-
         return s.toString();
     }
-
-
 }

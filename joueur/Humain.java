@@ -1,4 +1,12 @@
 package joueur;
 
-public class Humain {
+import partie.Coup;
+
+public class Humain extends Joueur{
+
+
+    public Coup demanderCoup(){
+
+
+    }
 }

@@ -11,11 +11,17 @@ public class Roi extends Pièce { //un roi est une pièce
     }
 
 
+    /**
+     *
+     * @param x coord x de la case cible
+     * @param y coord y de la case cible
+     * @param p le plateau
+     * @return true si le coup est legal
+     */
     public boolean coupLegal(int x, int y, Plateau p) {
 
-    boolean ok = (getCoordX() - x <= 1 && getCoordY() - y <= 1 && getCoordY() - x >= -1 && getCoordY() - y >= -1) ||
-            (x - getCoordX() <= 1 && y - getCoordY() <= 1 && x - getCoordX() >= -1 && y - getCoordY() >= -1);
-
+    boolean ok = ((getCoordX() - x <= 1 && getCoordY() - y <= 1) && (getCoordY() - x >= -1 && getCoordY() - y >= -1)) &&
+            ( (x - getCoordX() <= 1 && y - getCoordY() <= 1) && (x - getCoordX() >= -1 && y - getCoordY() >= -1));
         if(!(x > 0 && y > 0 && x < 7 && y <7)){
             System.out.println("wow tu vas où là ??");
             return false;
@@ -24,6 +30,9 @@ public class Roi extends Pièce { //un roi est une pièce
         if(p.getPièce(x,y) !=null && p.getPièce(x,y).getCouleur() == this.getCouleur()){
             System.out.println("tu peux pas manger tes pions wsh");
             return false;
+        }else if(p.getPièce(x,y) !=null && p.getPièce(x,y).getCouleur() != this.getCouleur()){
+            System.out.println("tu vas manger une pièce");
+            //manger(x,y,p);
         }
 
         if(ok){
@@ -36,30 +45,8 @@ public class Roi extends Pièce { //un roi est une pièce
 
     }
 
+    //TODO : regarder si le roi est en echec
+
+
 
 }
-
-
-
-
-
-
-//    public void jouerRoi(int x, int y){
-//
-//        assert ((getCoordX()-x <= 1 && getCoordY()-y <= 1 && getCoordY()-x >= -1 && getCoordY()-y >= -1)) ||  // vérifier le mouvement basic de Roi
-//                ((x-getCoordX() <=1 && y-getCoordY()<=1 && x-getCoordX() >= -1 && y-getCoordY() >= -1));
-//        assert (getCoordX()!=x || getCoordY()!=y); //imposible de rester surplace
-        //jouer(x,y);
-
-
-        //super.jouer(x,y);
-        //simulation()
-        //isLegal()
-        //echec()?
-        //mat()? -> fin de la partie + désigner le gagnant
-        //peutJouer()
-
-
-
-
-

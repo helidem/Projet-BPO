@@ -19,12 +19,10 @@ public class Tour extends Pièce
             return false;
         }
 
-
         if(p.getPièce(x,y) !=null && p.getPièce(x,y).getCouleur() == this.getCouleur()){
             System.out.println("tu peux pas manger tes pions wsh");
             return false;
         }
-
 
         if(ok)
         {

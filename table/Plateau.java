@@ -1,8 +1,10 @@
 package table;
 
 
+import partie.Coup;
 import piece.Pièce;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Plateau {
 
@@ -37,29 +39,34 @@ public class Plateau {
 
     public void jouer(Pièce p, int coordX, int coordY)
     {
-        //faire les tests
-        //memorise(p);
-
-
         System.out.println(p.getCoordX() + " " + p.getCoordY());
 
         if (p.coupLegal(coordX, coordY, this) == false)
             return;
 
-        put(p, coordX, coordY);
         removePièce(p);
+        put(p, coordX, coordY);
+
     }
 
+    public void jouer(int actuelCoordX, int actuelCoordY, int coordX ,int coordY){
+        Pièce p = getPièce(actuelCoordX,actuelCoordY);
+        System.out.println(p.type());
+
+        if (p.coupLegal(coordX, coordY, this) == false)
+            return;
+
+        removePièce(p);
+        put(p, coordX, coordY);
+    }
     public Pièce getPièce(int x,int y){
         return plateau[x][y];
     }
 
-
-    private void memorise(Pièce p)
-    {
-        p.setOldCoordX(p.getCoordX());
-        p.setOldCoordY(p.getCoordY());
+    public void jouer(Coup coup){
+        jouer(coup.getXd(),coup.getYd(),coup.getXa(),coup.getYa());
     }
+
 
     /**
      * Place une pièce dans le plateau
@@ -74,7 +81,7 @@ public class Plateau {
         plateau[p.getCoordX()][p.getCoordY()] = p;
     }
 
-    private void removePièce(Pièce p) { plateau[p.getCoordX()][p.getCoordY()] = null; }
+    public void removePièce(Pièce p) { plateau[p.getCoordX()][p.getCoordY()] = null; }
 
     public String toString(){
         StringBuilder s = new StringBuilder();

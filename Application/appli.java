@@ -26,14 +26,11 @@ public class appli {
         p.put(t,t.getCoordX(),t.getCoordY());
         p.put(t1,t1.getCoordX(),t1.getCoordY());
         System.out.println(p);
-        p.jouer(3,5,2,5);
-        System.out.println(p);
-        System.out.println(r.getCoordX() + " " + r.getCoordY());
 
-    Scanner scanner = new Scanner(System.in);
-       System.out.print("> ");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("> ");
         String ligne = scanner.nextLine();
-       while (!ligne.equals("fin")) // Tant qu'entrée n'est pas "fin"
+        while (!ligne.equals("fin")) // Tant qu'entrée n'est pas "fin"
         {
             Coup coup = new Coup();
 
@@ -46,11 +43,7 @@ public class appli {
             System.out.print("> ");
             ligne = scanner.nextLine();
         }
-
-scanner.close();
-
-
-
+        scanner.close();
     }
 
 

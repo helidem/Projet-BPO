@@ -1,6 +1,7 @@
 package table;
 
 
+import partie.Coordonnées;
 import partie.Coup;
 import piece.Pièce;
 import java.util.ArrayList;
@@ -25,63 +26,54 @@ public class Plateau {
         plateau = new Pièce[lignes][colonnes];
     }
 
-    public void jouerPièce(int actuelCoordX, int actuelCoordY, int coordX ,int coordY){ //interessant
-        assert coordX > 0 && coordY > 0 && actuelCoordX > 0 && actuelCoordY > 0;
-        assert coordX < 9 && coordY < 9 && actuelCoordX < 9 && actuelCoordY < 9;
-        for (Pièce p : pièceNoir){
-            if(p.getCoordX() == actuelCoordX && p.getCoordY() == actuelCoordY ){
-
-                jouer(p,coordX,coordY);
-            }
-        }
-        // Une exception si on trouve pas la pièce
-     }
-
-    public void jouer(Pièce p, int coordX, int coordY)
+    public void jouer(Pièce p, Coordonnées coordonnées)
     {
         System.out.println(p.getCoordX() + " " + p.getCoordY());
 
-        if (p.coupLegal(coordX, coordY, this) == false)
+        if (p.coupLegal(coordonnées.getX(), coordonnées.getY(), this) == false)
             return;
 
         removePièce(p);
-        put(p, coordX, coordY);
+        put(p, coordonnées);
 
     }
 
-    public void jouer(int actuelCoordX, int actuelCoordY, int coordX ,int coordY){
-        Pièce p = getPièce(actuelCoordX,actuelCoordY);
+    public void jouer(Coup coup){
+        Pièce p = getPièce(coup.getDépart().getX(),coup.getDépart().getY());
         System.out.println(p.type());
 
-        if (p.coupLegal(coordX, coordY, this) == false)
-            return;
+       // if (p.coupLegal(arrivée.getX(), arrivée.getY(), this) == false)
+       //     return;
+        if()
 
         removePièce(p);
-        put(p, coordX, coordY);
+        put(p, arrivée.getX(), arrivée.getY());
     }
-    public Pièce getPièce(int x,int y){
+    public Pièce getPièce(Coordonnées coordonnées){
+        return plateau[coordonnées.getX()][coordonnées.getY()];
+    }
+
+    public Pièce getPièce(int x, int y){
         return plateau[x][y];
     }
 
     public void jouer(Coup coup){
-        jouer(coup.getXd(),coup.getYd(),coup.getXa(),coup.getYa());
+        jouer(coup.getDépart(),coup.getArrivée());
     }
 
 
     /**
      * Place une pièce dans le plateau
      * @param p la pièce à mettre
-     * @param coordX la coordonnée X de la case désirée
-     * @param coordY la coordonnée Y de la case désirée
+     * @param coordonnées la coordonnée de la case désirée
      */
-    public void put(Pièce p, int coordX, int coordY)
+    public void put(Pièce p, Coordonnées coordonnées)
     {
-        p.setCoordX(coordX);
-        p.setCoordY(coordY);
-        plateau[p.getCoordX()][p.getCoordY()] = p;
+        p.setCoordonnées(coordonnées);
+        plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
     }
 
-    public void removePièce(Pièce p) { plateau[p.getCoordX()][p.getCoordY()] = null; }
+    public void removePièce(Pièce p) { plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = null; }
 
 
 

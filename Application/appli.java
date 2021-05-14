@@ -25,9 +25,9 @@ public class appli {
         Pièce t = new Tour(5,5,Couleur.NOIR);
         Pièce t1 = new Tour(4,3,Couleur.NOIR);
 
-        p.put(r,r.getCoordX(), r.getCoordY()); //changer ça pour avoir une methode surchargée
-        p.put(t,t.getCoordX(),t.getCoordY());
-        p.put(t1,t1.getCoordX(),t1.getCoordY());
+        p.put(r,r.getCoordonnées());
+        p.put(t,t.getCoordonnées());
+        p.put(t1,t1.getCoordonnées());
         System.out.println(p);
 
         Scanner scanner = new Scanner(System.in);
@@ -77,7 +77,7 @@ public class appli {
         {
             return false;
         }
-        
+
            /* int xd = Integer.parseInt(mot.substring(0, 1));
             int yd = Integer.parseInt(mot.substring(2, 3));//3,5:5,6
             int xa = Integer.parseInt(mot.substring(4, 5));//0123456

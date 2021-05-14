@@ -21,13 +21,13 @@ public class appli {
 
         //saisie -> analyse de la saisie -> transformer la saisie en coup/coord -> jouer(.....) t'as capté => si erreur : aie
 
-        Pièce r = new Roi(3,5,Couleur.BLANC); //ça commence a partir de 0 donc 0 = 1 ou a etc... et 7 = 8 ou h donc (4,5) =>e6
-        Pièce t = new Tour(5,5,Couleur.NOIR);
-        Pièce t1 = new Tour(4,3,Couleur.NOIR);
+        Pièce r = new Roi(new Coordonnées(3,4),Couleur.NOIR); //ça commence a partir de 0 donc 0 = 1 ou a etc... et 7 = 8 ou h donc (4,5) =>e6
+
+            Pièce t = new Tour(new Coordonnées(5,5),Couleur.NOIR);
 
         p.put(r,r.getCoordonnées());
         p.put(t,t.getCoordonnées());
-        p.put(t1,t1.getCoordonnées());
+
         System.out.println(p);
 
         Scanner scanner = new Scanner(System.in);

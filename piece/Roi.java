@@ -1,36 +1,29 @@
 package piece;
 
 
+import partie.Coordonnées;
 import table.Plateau;
 
 public class Roi extends Pièce { //un roi est une pièce
 
 
-    public Roi(int coordX, int coordY, Couleur c) { //Pièce p = new Roi(1,1,Couleur.BLANC);
-        super(coordX, coordY, c, "r");
+    public Roi(Coordonnées coordonnées, Couleur c) { //Pièce p = new Roi(1,1,Couleur.BLANC);
+        super( c, coordonnées,"r");
     }
 
+    public boolean coupLegal(Coordonnées coord, Plateau p) {
 
-    /**
-     *
-     * @param x coord x de la case cible
-     * @param y coord y de la case cible
-     * @param p le plateau
-     * @return true si le coup est legal
-     */
-    public boolean coupLegal(int x, int y, Plateau p) {
-
-    boolean ok = ((getCoordX() - x <= 1 && getCoordY() - y <= 1) && (getCoordY() - x >= -1 && getCoordY() - y >= -1)) &&
-            ( (x - getCoordX() <= 1 && y - getCoordY() <= 1) && (x - getCoordX() >= -1 && y - getCoordY() >= -1));
-        if(!(x > 0 && y > 0 && x < 7 && y <7)){
+    boolean ok = ((getCoordonnées().getX() - coord.getX() <= 1 && getCoordonnées().getY() - coord.getY() <= 1) && (getCoordonnées().getY() - coord.getX() >= -1 && getCoordonnées().getY() - coord.getY() >= -1)) &&
+            ( (coord.getX() - getCoordonnées().getX() <= 1 && coord.getY() - getCoordonnées().getY() <= 1) && (coord.getX() - getCoordonnées().getX() >= -1 && coord.getY() - getCoordonnées().getY() >= -1));
+        if(!(coord.getX() > 0 && coord.getY() > 0 && coord.getX() < 7 && coord.getY() <7)){
             System.out.println("wow tu vas où là ??");
             return false;
         }
 
-        if(p.getPièce(x,y) !=null && p.getPièce(x,y).getCouleur() == this.getCouleur()){
+        if(p.getPièce(coord) !=null && p.getPièce(coord).getCouleur() == this.getCouleur()){
             System.out.println("tu peux pas manger tes pions wsh");
             return false;
-        }else if(p.getPièce(x,y) !=null && p.getPièce(x,y).getCouleur() != this.getCouleur()){
+        }else if(p.getPièce(coord) !=null && p.getPièce(coord).getCouleur() != this.getCouleur()){
             System.out.println("tu vas manger une pièce");
             //manger(x,y,p);
         }
@@ -42,6 +35,11 @@ public class Roi extends Pièce { //un roi est une pièce
                     return false;
         }
 
+
+    }
+
+    @Override
+    public void manger(int x, int y, Plateau p) {
 
     }
 

@@ -26,28 +26,27 @@ public class Plateau {
         plateau = new Pièce[lignes][colonnes];
     }
 
-    public void jouer(Pièce p, Coordonnées coordonnées)
+    /*private void jouer(Pièce p, Coordonnées coordonnées)
     {
-        System.out.println(p.getCoordX() + " " + p.getCoordY());
+        System.out.println(p.getCoordonnées().getX() + " " + p.getCoordonnées().getY());
 
-        if (p.coupLegal(coordonnées.getX(), coordonnées.getY(), this) == false)
+        if (p.coupLegal(coordonnées, this) == false)
             return;
 
         removePièce(p);
         put(p, coordonnées);
 
-    }
+    }*/
 
     public void jouer(Coup coup){
         Pièce p = getPièce(coup.getDépart().getX(),coup.getDépart().getY());
         System.out.println(p.type());
 
-       // if (p.coupLegal(arrivée.getX(), arrivée.getY(), this) == false)
-       //     return;
-        if()
+        if(p.coupLegal(coup.getArrivée(),this) == false)
+            return;
 
         removePièce(p);
-        put(p, arrivée.getX(), arrivée.getY());
+        put(p, coup.getArrivée());
     }
     public Pièce getPièce(Coordonnées coordonnées){
         return plateau[coordonnées.getX()][coordonnées.getY()];
@@ -57,9 +56,9 @@ public class Plateau {
         return plateau[x][y];
     }
 
-    public void jouer(Coup coup){
+    /*public void jouer(Coup coup){
         jouer(coup.getDépart(),coup.getArrivée());
-    }
+    }*/
 
 
     /**

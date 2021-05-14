@@ -7,11 +7,11 @@ public class Tour extends Pièce
 {
 
 
-    public Tour(int coordX, int coordY, Couleur c) {
-        super(coordX, coordY, c, "t");
+    public Tour(Coordonnées coordonnées, Couleur c) {
+        super(c,coordonnées,"t");
     }
 
-    public boolean coupLegal(Coordonnées coord,int x, int y, Plateau p){
+    public boolean coupLegal(Coordonnées coord,Plateau p){
 
 
         boolean ok = (getCoordonnées().getX() == coord.getX() && getCoordonnées().getY() != coord.getY()) || (getCoordonnées().getY() == coord.getY() && getCoordonnées().getX() != coord.getX());
@@ -28,39 +28,39 @@ public class Tour extends Pièce
 
         if(ok)
         {
-            if(getCoordonnées().getX() == x && getCoordonnées().getY() != y){ //on bouge sur la mm colonne
-                if(y > getCoordonnées().getY()){ //on monte
+            if(getCoordonnées().getX() == coord.getX() && getCoordonnées().getY() !=coord.getY()){ //on bouge sur la mm colonne
+                if(coord.getY() > getCoordonnées().getY()){ //on monte
                     System.out.println("on monte");
-                    for(int i = getCoordonnées().getY();i<y;i++){
-                        if(p.getPièce(x,i) != null){
+                    for(int i = getCoordonnées().getY();i<coord.getY();i++){
+                        if(p.getPièce(coord.getX(),i) != null){
                             System.out.println("doucement abruti ya un ostacle");
                             return false;
                         }
                     }
                 }
-                else if (y < getCoordonnées().getY()){ //on descends
+                else if (coord.getY() < getCoordonnées().getY()){ //on descends
                     System.out.println("on descends");
-                    for(int i = getCoordonnées().getY();i>y;i--){
-                        if(p.getPièce(x,i) != null){
+                    for(int i = getCoordonnées().getY();i>coord.getY();i--){
+                        if(p.getPièce(coord.getX(),i) != null){
                             System.out.println("doucement abruti ya un ostacle");
                             return false;
                         }
                     }
                 }
             }
-            else  if(getCoordonnées().getX() != x && getCoordonnées().getY() == y){ //on bouge sur la mm ligne
-                if(x > getCoordonnées().getX()){ //on va vers la droite
+            else  if(getCoordonnées().getX() != coord.getX() && getCoordonnées().getY() == coord.getY()){ //on bouge sur la mm ligne
+                if(coord.getX() > getCoordonnées().getX()){ //on va vers la droite
                     System.out.println("on va vers la droite");
-                    for(int i = getCoordonnées().getX();i<x;i++){
-                        if(p.getPièce(i,y) != null){
+                    for(int i = getCoordonnées().getX();i<coord.getX();i++){
+                        if(p.getPièce(i,coord.getY()) != null){
                             System.out.println("doucement abruti ya un ostacle");
                             return false;
                         }
                     }
-                }else if(x < getCoordonnées().getX()){ //on va vers la gauche
+                }else if(coord.getX() < getCoordonnées().getX()){ //on va vers la gauche
                     System.out.println("on va vers la gauche");
-                    for(int i = getCoordonnées().getX();i>x;i--){
-                        if(p.getPièce(i,y) != null){
+                    for(int i = getCoordonnées().getX();i>coord.getX();i--){
+                        if(p.getPièce(i,coord.getY()) != null){
                             System.out.println("doucement abruti ya un ostacle");
                             return false;
                         }
@@ -71,8 +71,11 @@ public class Tour extends Pièce
             System.out.println("t'es con tu peux pas");
             return false;
         }
-
         return true;
     }
 
+    @Override
+    public void manger(int x, int y, Plateau p) {
+
+    }
 }

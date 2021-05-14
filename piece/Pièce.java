@@ -1,10 +1,9 @@
 package piece;
 
 import partie.Coordonnées;
+import table.Couleur;
 import table.IPièce;
 import table.Plateau;
-
-import java.nio.charset.CoderResult;
 
 public abstract class  Pièce implements IPièce {
 

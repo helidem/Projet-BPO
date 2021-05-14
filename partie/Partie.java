@@ -1,8 +1,7 @@
 package partie;
 
 import joueur.Humain;
-import joueur.Joueur;
-import piece.Couleur;
+import table.Couleur;
 
 public class Partie {
     private IJoueur[] joueurs;
@@ -32,4 +31,5 @@ public Partie(){
         return courant.name();
     }
 
+    //TODO : placer ici la saisie utilisateur
 }

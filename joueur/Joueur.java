@@ -2,7 +2,7 @@ package joueur;
 
 import partie.Coup;
 import partie.IJoueur;
-import piece.Couleur;
+import table.Couleur;
 import piece.Pièce;
 
 import java.util.ArrayList;

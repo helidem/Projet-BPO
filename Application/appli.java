@@ -4,7 +4,8 @@ package Application;
 import partie.Coordonnées;
 import partie.Coup;
 import partie.Partie;
-import piece.Couleur;
+import table.Couleur;
+
 import piece.Pièce;
 import piece.Roi;
 import piece.Tour;
@@ -38,15 +39,15 @@ public class appli {
             Coup coup = new Coup();
 
             boolean isOk = décomposer(ligne, coup);
+
             if(!isOk){
-                System.out.println("#");
+                System.out.print("#");
             }else{
-                System.out.println(partie);
+                p.jouer(coup);
                 partie.changerJoueur();
                 System.out.println(partie);
+                System.out.println(p);
             }
-            p.jouer(coup);
-            System.out.println(p);
             System.out.print("> ");
             ligne = scanner.nextLine();
         }
@@ -56,38 +57,49 @@ public class appli {
 
     private static boolean décomposer(String ligne, Coup coup){
         Scanner scanner = new Scanner(ligne);
-        // On décompose la ligne
-        while(scanner.hasNext())
-        {
-            String mot = scanner.next();
 
-            // On analyse chaque mot de la ligne entrée
-            if(!analyser(mot, coup))
-            {
-                return false; // Retourne faux si un pas valide
-            }
-        }
+        ligne.toLowerCase();
 
-        return true;
-    }
-
-    private static boolean analyser(String mot, Coup coup){
         // On vérifie si l'entrée est de taille 7
-        if(mot.length() != 7)
+        if(ligne.length() != 4)
         {
             return false;
         }
 
+        int var = 0,var1 = 0,var2 = 0,var3 = 0;
+
+        if(Character.isLetter(ligne.charAt(0))){
+             var = (int)ligne.charAt(0) - (int)'a';
+        }else{
+            return false;
+        }
+        if(Character.isDigit(ligne.charAt(1)) && ligne.charAt(1) <9 && ligne.charAt(1)>0){
+             var1 = ligne.charAt(1) -'0'- 1;
+        }else{
+            return false;
+        }
+        if(Character.isLetter(ligne.charAt(2))){
+            var2 = (int)ligne.charAt(2) - (int)'a';
+        }else{
+            return false;
+        }
+        if(Character.isDigit(ligne.charAt(3))&& ligne.charAt(1) <9 && ligne.charAt(1)>0){
+            var3 = ligne.charAt(3) -'0'- 1;
+        }else{
+            return false;
+        }
+
+        Coordonnées départ = new Coordonnées(var,var1);
+        Coordonnées arrivée = new Coordonnées(var2,var3);
+
+        coup.setCoord(départ,arrivée);
+        return true;
+    }
+
+    private static void analyser(String mot, Coup coup){
            /* int xd = Integer.parseInt(mot.substring(0, 1));
             int yd = Integer.parseInt(mot.substring(2, 3));//3,5:5,6
             int xa = Integer.parseInt(mot.substring(4, 5));//0123456
             int ya = Integer.parseInt(mot.substring(6));*/
-
-
-            Coordonnées départ = new Coordonnées(Integer.parseInt(mot.substring(0, 1)),Integer.parseInt(mot.substring(2, 3)));
-            Coordonnées arrivée = new Coordonnées(Integer.parseInt(mot.substring(4, 5)),Integer.parseInt(mot.substring(6)));
-
-            coup.setCoord(départ,arrivée);
-            return true;
     }
 }

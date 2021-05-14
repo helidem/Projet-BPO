@@ -2,6 +2,7 @@ package piece;
 
 
 import partie.Coordonnées;
+import table.Couleur;
 import table.Plateau;
 
 public class Roi extends Pièce { //un roi est une pièce
@@ -16,12 +17,12 @@ public class Roi extends Pièce { //un roi est une pièce
     boolean ok = ((getCoordonnées().getX() - coord.getX() <= 1 && getCoordonnées().getY() - coord.getY() <= 1) && (getCoordonnées().getY() - coord.getX() >= -1 && getCoordonnées().getY() - coord.getY() >= -1)) &&
             ( (coord.getX() - getCoordonnées().getX() <= 1 && coord.getY() - getCoordonnées().getY() <= 1) && (coord.getX() - getCoordonnées().getX() >= -1 && coord.getY() - getCoordonnées().getY() >= -1));
         if(!(coord.getX() > 0 && coord.getY() > 0 && coord.getX() < 7 && coord.getY() <7)){
-            System.out.println("wow tu vas où là ??");
+            System.out.println("dehors");
             return false;
         }
 
         if(p.getPièce(coord) !=null && p.getPièce(coord).getCouleur() == this.getCouleur()){
-            System.out.println("tu peux pas manger tes pions wsh");
+            System.out.println("tu peux pas manger tes pions");
             return false;
         }else if(p.getPièce(coord) !=null && p.getPièce(coord).getCouleur() != this.getCouleur()){
             System.out.println("tu vas manger une pièce");
@@ -38,13 +39,7 @@ public class Roi extends Pièce { //un roi est une pièce
 
     }
 
-    @Override
-    public void manger(int x, int y, Plateau p) {
-
-    }
-
     //TODO : regarder si le roi est en echec
-
 
 
 }

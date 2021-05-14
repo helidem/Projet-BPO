@@ -3,9 +3,7 @@ package table;
 
 import partie.Coordonnées;
 import partie.Coup;
-import piece.Pièce;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Plateau {
 
@@ -14,16 +12,16 @@ public class Plateau {
 
 
 
-    private Pièce[][] plateau;
+    private IPièce[][] plateau;
 
-    private ArrayList<Pièce> pièceNoir; //a enlever t mettre dans joueur
-    private ArrayList<Pièce> pièceBlanc;
+    //private ArrayList<Pièce> pièceNoir; //a enlever t mettre dans joueur
+    //private ArrayList<Pièce> pièceBlanc;
 
     /**
      * Constructeur de la classe Plateau
      */
     public Plateau() {
-        plateau = new Pièce[lignes][colonnes];
+        plateau = new IPièce[lignes][colonnes];
     }
 
     /*private void jouer(Pièce p, Coordonnées coordonnées)
@@ -39,7 +37,7 @@ public class Plateau {
     }*/
 
     public void jouer(Coup coup){
-        Pièce p = getPièce(coup.getDépart().getX(),coup.getDépart().getY());
+        IPièce p = getPièce(coup.getDépart().getX(),coup.getDépart().getY());
         System.out.println(p.type());
 
         if(p.coupLegal(coup.getArrivée(),this) == false)
@@ -48,11 +46,11 @@ public class Plateau {
         removePièce(p);
         put(p, coup.getArrivée());
     }
-    public Pièce getPièce(Coordonnées coordonnées){
+    public IPièce getPièce(Coordonnées coordonnées){
         return plateau[coordonnées.getX()][coordonnées.getY()];
     }
 
-    public Pièce getPièce(int x, int y){
+    public IPièce getPièce(int x, int y){
         return plateau[x][y];
     }
 
@@ -66,16 +64,13 @@ public class Plateau {
      * @param p la pièce à mettre
      * @param coordonnées la coordonnée de la case désirée
      */
-    public void put(Pièce p, Coordonnées coordonnées)
+    public void put(IPièce p, Coordonnées coordonnées)
     {
         p.setCoordonnées(coordonnées);
         plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
     }
 
-    public void removePièce(Pièce p) { plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = null; }
-
-
-
+    public void removePièce(IPièce p) { plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = null; }
 
 
     public String toString(){

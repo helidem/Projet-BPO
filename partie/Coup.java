@@ -1,39 +1,27 @@
 package partie;
 
 public class Coup {
-    private int xd,yd,xa,ya;
 
-    public Coup(int xd, int yd, int xa, int ya) {
-        this.xd = xd;
-        this.yd = yd;
-        this.xa = xa;
-        this.ya = ya;
+    private Coordonnées départ, arrivée;
+    public Coup(Coordonnées départ, Coordonnées arrivée) {
+        this.départ = départ;
+        this.arrivée = arrivée;
     }
 
     public Coup(){
-        this(0,0,0,0);
+
+    }
+    public Coordonnées getDépart() {
+        return départ;
     }
 
-    public int getXd() {
-        return xd;
+    public Coordonnées getArrivée() {
+        return arrivée;
     }
 
-    public int getYd() {
-        return yd;
+    public void setCoord(Coordonnées départ, Coordonnées arrivée){
+        this.départ = départ;
+        this.arrivée = arrivée;
     }
 
-    public int getXa() {
-        return xa;
-    }
-
-    public int getYa() {
-        return ya;
-    }
-
-    public void setCoord(int xd, int yd, int xa, int ya){
-        this.xd = xd;
-        this.yd = ya;
-        this.xa = xa;
-        this.ya = ya;
-    }
 }

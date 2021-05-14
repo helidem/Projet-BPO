@@ -1,7 +1,9 @@
 package Application;
 
 
+import partie.Coordonnées;
 import partie.Coup;
+import partie.Partie;
 import piece.Couleur;
 import piece.Pièce;
 import piece.Roi;
@@ -13,6 +15,7 @@ import java.util.Scanner;
 
 public class appli {
     public static void main(String[] args) {
+        Partie partie = new Partie();
         Plateau p = new Plateau();
 
 
@@ -36,7 +39,11 @@ public class appli {
 
             boolean isOk = décomposer(ligne, coup);
             if(!isOk){
-                System.out.println("Erreur");
+                System.out.println("#");
+            }else{
+                System.out.println(partie);
+                partie.changerJoueur();
+                System.out.println(partie);
             }
             p.jouer(coup);
             System.out.println(p);
@@ -70,12 +77,17 @@ public class appli {
         {
             return false;
         }
-            int xd = Integer.parseInt(mot.substring(0, 1));
+        
+           /* int xd = Integer.parseInt(mot.substring(0, 1));
             int yd = Integer.parseInt(mot.substring(2, 3));//3,5:5,6
             int xa = Integer.parseInt(mot.substring(4, 5));//0123456
-            int ya = Integer.parseInt(mot.substring(6));
+            int ya = Integer.parseInt(mot.substring(6));*/
 
-            coup.setCoord(xd,yd,xa,ya);
+
+            Coordonnées départ = new Coordonnées(Integer.parseInt(mot.substring(0, 1)),Integer.parseInt(mot.substring(2, 3)));
+            Coordonnées arrivée = new Coordonnées(Integer.parseInt(mot.substring(4, 5)),Integer.parseInt(mot.substring(6)));
+
+            coup.setCoord(départ,arrivée);
             return true;
     }
 }

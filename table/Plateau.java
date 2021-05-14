@@ -83,6 +83,10 @@ public class Plateau {
 
     public void removePièce(Pièce p) { plateau[p.getCoordX()][p.getCoordY()] = null; }
 
+
+
+
+
     public String toString(){
         StringBuilder s = new StringBuilder();
         s.append("    a   b   c   d   e   f   g   h    \n");

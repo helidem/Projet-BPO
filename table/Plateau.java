@@ -74,4 +74,9 @@ public class Plateau {
         s.append("    a   b   c   d   e   f   g   h    \n");
         return s.toString();
     }
+
+    public void put(IPièce p) {
+        p.setCoordonnées(p.getCoordonnées());
+        plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
+    }
 }

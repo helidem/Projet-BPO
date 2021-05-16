@@ -7,7 +7,6 @@ import table.Plateau;
 
 public abstract class  Pièce implements IPièce {
 
-
     private Couleur couleur;
     private Coordonnées coordonnées;
     private String type;
@@ -36,7 +35,4 @@ public abstract class  Pièce implements IPièce {
         return (couleur == Couleur.BLANC) ? type.toUpperCase() : type;
     }
 
-    public void manger(Coordonnées coordonnées, Plateau p){
-        p.removePièce(p.getPièce(coordonnées));
-    }
 }

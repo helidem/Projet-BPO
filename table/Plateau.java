@@ -3,19 +3,13 @@ package table;
 
 import partie.Coordonnées;
 import partie.Coup;
-import java.util.ArrayList;
 
 public class Plateau {
 
     public static final int lignes = 8;
     public static final int colonnes = 8;
 
-
-
     private IPièce[][] plateau;
-
-    //private ArrayList<Pièce> pièceNoir; //a enlever t mettre dans joueur
-    //private ArrayList<Pièce> pièceBlanc;
 
     /**
      * Constructeur de la classe Plateau
@@ -24,23 +18,16 @@ public class Plateau {
         plateau = new IPièce[lignes][colonnes];
     }
 
-    /*private void jouer(Pièce p, Coordonnées coordonnées)
-    {
-        System.out.println(p.getCoordonnées().getX() + " " + p.getCoordonnées().getY());
-
-        if (p.coupLegal(coordonnées, this) == false)
-            return;
-
-        removePièce(p);
-        put(p, coordonnées);
-
-    }*/
-
     public void jouer(Coup coup){
         IPièce p = getPièce(coup.getDépart().getX(),coup.getDépart().getY());
-        System.out.println(p.type());
+        if(p != null)
+            System.out.println(p.type());
+        else{
+            System.out.println(" ");
+            return;
+        }
 
-        if(p.coupLegal(coup.getArrivée(),this) == false)
+        if(!p.coupLegal(coup.getArrivée(),this))
             return;
 
         removePièce(p);
@@ -53,11 +40,6 @@ public class Plateau {
     public IPièce getPièce(int x, int y){
         return plateau[x][y];
     }
-
-    /*public void jouer(Coup coup){
-        jouer(coup.getDépart(),coup.getArrivée());
-    }*/
-
 
     /**
      * Place une pièce dans le plateau

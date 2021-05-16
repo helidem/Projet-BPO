@@ -38,9 +38,7 @@ public class appli {
         {
             Coup coup = new Coup();
 
-            boolean isOk = décomposer(ligne, coup);
-
-            if(!isOk){
+            if(!décomposer(ligne, coup)){
                 System.out.print("#");
             }else{
                 p.jouer(coup);
@@ -54,7 +52,12 @@ public class appli {
         scanner.close();
     }
 
-
+    /**
+     *
+     * @param ligne
+     * @param coup
+     * @return
+     */
     private static boolean décomposer(String ligne, Coup coup){
         Scanner scanner = new Scanner(ligne);
 
@@ -68,22 +71,22 @@ public class appli {
 
         int var = 0,var1 = 0,var2 = 0,var3 = 0;
 
-        if(Character.isLetter(ligne.charAt(0))){
+        if(Character.isLetter(ligne.charAt(0)) && (int)ligne.charAt(0) - (int)'a' <=0 && (int)ligne.charAt(0) - (int)'a' >= 7){
              var = (int)ligne.charAt(0) - (int)'a';
         }else{
             return false;
         }
-        if(Character.isDigit(ligne.charAt(1)) && ligne.charAt(1) <9 && ligne.charAt(1)>0){
+        if(Character.isDigit(ligne.charAt(1)) && Integer.parseInt(ligne.substring(1,2)) <9 && Integer.parseInt(ligne.substring(1,2))>0){
              var1 = ligne.charAt(1) -'0'- 1;
         }else{
             return false;
         }
-        if(Character.isLetter(ligne.charAt(2))){
+        if(Character.isLetter(ligne.charAt(2))&& (int)ligne.charAt(2) - (int)'a' <=0 && (int)ligne.charAt(2) - (int)'a' >= 7){
             var2 = (int)ligne.charAt(2) - (int)'a';
         }else{
             return false;
         }
-        if(Character.isDigit(ligne.charAt(3))&& ligne.charAt(1) <9 && ligne.charAt(1)>0){
+        if(Character.isDigit(ligne.charAt(3))&& Integer.parseInt(ligne.substring(3)) <9 && Integer.parseInt(ligne.substring(3))>0){
             var3 = ligne.charAt(3) -'0'- 1;
         }else{
             return false;
@@ -94,12 +97,5 @@ public class appli {
 
         coup.setCoord(départ,arrivée);
         return true;
-    }
-
-    private static void analyser(String mot, Coup coup){
-           /* int xd = Integer.parseInt(mot.substring(0, 1));
-            int yd = Integer.parseInt(mot.substring(2, 3));//3,5:5,6
-            int xa = Integer.parseInt(mot.substring(4, 5));//0123456
-            int ya = Integer.parseInt(mot.substring(6));*/
     }
 }

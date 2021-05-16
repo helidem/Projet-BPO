@@ -12,6 +12,12 @@ public class Tour extends Pièce
         super(c,coordonnées,"t");
     }
 
+    /**
+     *
+     * @param coord
+     * @param p
+     * @return
+     */
     public boolean coupLegal(Coordonnées coord,Plateau p){
 
         boolean ok = (getCoordonnées().getX() == coord.getX() && getCoordonnées().getY() != coord.getY()) || (getCoordonnées().getY() == coord.getY() && getCoordonnées().getX() != coord.getX());

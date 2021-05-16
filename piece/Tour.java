@@ -6,8 +6,6 @@ import table.Plateau;
 
 public class Tour extends Pièce
 {
-
-
     public Tour(Coordonnées coordonnées, Couleur c) {
         super(c,coordonnées,"t");
     }
@@ -39,7 +37,7 @@ public class Tour extends Pièce
                     System.out.println("on monte");
                     for(int i = getCoordonnées().getY()+1;i<coord.getY();i++){
                         if(p.getPièce(coord.getX(),i) != null){
-                            System.out.println("ostacle");
+                            System.out.println("obstacle");
                             return false;
                         }
                     }
@@ -48,7 +46,7 @@ public class Tour extends Pièce
                     System.out.println("on descends");
                     for(int i = getCoordonnées().getY()-1;i>coord.getY();i--){
                         if(p.getPièce(coord.getX(),i) != null){
-                            System.out.println("ostacle");
+                            System.out.println("obstacle");
                             return false;
                         }
                     }
@@ -59,7 +57,7 @@ public class Tour extends Pièce
                     System.out.println("on va vers la droite");
                     for(int i = getCoordonnées().getX()+1;i<coord.getX();i++){
                         if(p.getPièce(i,coord.getY()) != null){
-                            System.out.println("ostacle");
+                            System.out.println("obstacle");
                             return false;
                         }
                     }
@@ -67,7 +65,7 @@ public class Tour extends Pièce
                     System.out.println("on va vers la gauche");
                     for(int i = getCoordonnées().getX()-1;i>coord.getX();i--){
                         if(p.getPièce(i,coord.getY()) != null){
-                            System.out.println("ostacle");
+                            System.out.println("obstacle");
                             return false;
                         }
                     }

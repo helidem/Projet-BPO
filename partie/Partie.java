@@ -10,16 +10,16 @@ public class Partie {
     private IJoueur[] joueurs;
     private Couleur courant;
 
-public Partie(){
-    joueurs = new Humain[Couleur.values().length];
-    joueurs[Couleur.BLANC.ordinal()] = new Humain();
-    joueurs[Couleur.NOIR.ordinal()] = new Humain();
+    public Partie(){
+        joueurs = new Humain[Couleur.values().length];
+        joueurs[Couleur.BLANC.ordinal()] = new Humain();
+        joueurs[Couleur.NOIR.ordinal()] = new Humain();
 
-    courant = Couleur.BLANC;
-}
+        courant = Couleur.BLANC;
+    }
 
     public Couleur getJoueurCourant(){
-    return courant;
+        return courant;
     }
 
     public Couleur getJoueurAdverse(){
@@ -44,7 +44,7 @@ public Partie(){
         {
             Coup coup = new Coup();
 
-            if(!décomposer(ligne, coup)){
+            if(!décomposer(ligne, coup,p)){
                 System.out.print("#");
             }else{
                 p.jouer(coup);
@@ -58,7 +58,7 @@ public Partie(){
         scanner.close();
     }
 
-    private static boolean décomposer(String ligne, Coup coup){
+    private boolean décomposer(String ligne, Coup coup, Plateau p){
         Scanner scanner = new Scanner(ligne);
 
         ligne.toLowerCase();
@@ -96,6 +96,13 @@ public Partie(){
         Coordonnées arrivée = new Coordonnées(var2,var3);
 
         coup.setCoord(départ,arrivée);
+
+        if(!p.getPièce(coup.getDépart().getX(),coup.getDépart().getY()).getCouleur().equals(courant))
+        {
+            System.out.println("pas ta couleur");
+            return false;
+        }
+
         return true;
     }
 

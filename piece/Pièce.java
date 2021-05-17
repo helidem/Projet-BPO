@@ -31,6 +31,12 @@ public abstract class  Pièce implements IPièce {
 
     public abstract boolean coupLegal(Coordonnées coordonnées, Plateau p);
 
+    public abstract boolean craintEchec();
+
+    public boolean verifierEchec(){
+        return false;
+    }
+
     public String type(){
         return (couleur == Couleur.BLANC) ? type.toUpperCase() : type;
     }

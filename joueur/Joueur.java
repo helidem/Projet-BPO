@@ -17,6 +17,5 @@ public abstract class Joueur implements IJoueur {
 
     public abstract Coup demanderCoup();
     //TODO : faire ne sorte que le programme demande un coup au joueur et retourne un coup. -> new Coup() à l'interieur?
-    //TODO : convertir les chiffres en coups et creer une classe coordonnées
 
 }

@@ -7,9 +7,11 @@ import table.Plateau;
 
 public class Roi extends Pièce { //un roi est une pièce
 
+    private boolean enDanger;
 
     public Roi(Coordonnées coordonnées, Couleur c) { //Pièce p = new Roi(1,1,Couleur.BLANC);
         super( c, coordonnées,"r");
+        this.enDanger = false;
     }
 
     public boolean coupLegal(Coordonnées coord, Plateau p) {
@@ -36,6 +38,10 @@ public class Roi extends Pièce { //un roi est une pièce
                     return false;
         }
 
+        }
+
+    public boolean craintEchec(){
+        return true;
 
     }
 

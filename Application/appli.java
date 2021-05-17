@@ -23,6 +23,7 @@ public class appli {
         IPièce t = new Tour(new Coordonnées(5,5),Couleur.NOIR);
         IPièce t1 = new Tour(new Coordonnées(1,1),Couleur.BLANC);
 
+
         p.put(r,r.getCoordonnées());
         p.put(t,t.getCoordonnées());
         p.put(t1);

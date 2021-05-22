@@ -46,6 +46,6 @@ public class PlateauTest {
         Plateau plateau = new Plateau();
         IPièce r = new Roi(new Coordonnées(3,4), Couleur.NOIR);
         plateau.put(r);
-
+        //hsgzygqjhg
     }
 }

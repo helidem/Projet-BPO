@@ -1,7 +1,10 @@
-package piece;
+package test;
 
 import org.junit.jupiter.api.Test;
 import partie.Coordonnées;
+import piece.Pièce;
+import piece.Roi;
+import piece.Tour;
 import table.Couleur;
 import table.Plateau;
 

@@ -1,9 +1,12 @@
-package table;
+package test;
 
 import org.junit.jupiter.api.Test;
 import partie.Coordonnées;
 import piece.Roi;
 import piece.Tour;
+import table.Couleur;
+import table.IPièce;
+import table.Plateau;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -13,7 +16,7 @@ public class PlateauTest {
     @Test
     void testPut(){
         Plateau plateau = new Plateau();
-        IPièce r = new Roi(new Coordonnées(3,4),Couleur.NOIR);
+        IPièce r = new Roi(new Coordonnées(3,4), Couleur.NOIR);
         IPièce t = new Tour(new Coordonnées(5,5),Couleur.NOIR);
         IPièce t1 = new Tour(new Coordonnées(1,1),Couleur.BLANC);
         plateau.put(r);

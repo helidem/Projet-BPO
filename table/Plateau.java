@@ -3,6 +3,7 @@ package table;
 
 import partie.Coordonnées;
 import partie.Coup;
+import partie.Partie;
 
 import java.util.ArrayList;
 
@@ -20,23 +21,36 @@ public class Plateau {
         plateau = new IPièce[lignes][colonnes];
     }
 
-    public void jouer(Coup coup) {
+    public boolean jouer(Coup coup, Partie partie) {
         IPièce p = getPièce(coup.getDépart().getX(), coup.getDépart().getY());
-        if (p != null)
+        if (caseOccupée(p.getCoordonnées()))
             System.out.println(p.type());
         else {
             System.out.println(" ");
-            return;
+            return false;
         }
 
-        //TODO : recuperer le roi du joueur courant et adverse  et tester si il est en echec apres avoir joué, pour savoir si il peut continuer ou pas
-
         if (!p.coupLegal(coup.getArrivée(), this))
-            return;
+            return false;
 
+        if(p.craintEchec()){
+            p.setAncienneCoord(p.getCoordonnées());
+            removePièce(p);
+            put(p, coup.getArrivée());
+            if(getRoi(partie.getJoueurCourant()).enEchec(this)){
+                p.setAncienneCoord(p.getAncienneCoord());
+                return false;
+            }
+        }
+
+        if(getRoi(partie.getJoueurCourant()).enEchec(this)){
+            return false;
+        }
         removePièce(p);
         put(p, coup.getArrivée());
+        return true;
     }
+
     public IPièce getPièce(Coordonnées coordonnées) {
         return plateau[coordonnées.getX()][coordonnées.getY()];
     }
@@ -58,7 +72,6 @@ public class Plateau {
     public void removePièce(IPièce p) {
         plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = null;
     }
-
 
     public String toString() {
         StringBuilder s = new StringBuilder();
@@ -118,5 +131,18 @@ public class Plateau {
             }
         }
         return pièces;
+    }
+
+    public IPièce getRoi(Couleur couleur){
+        for(int l = 0;l<lignes;l++){
+            for(int c = 0;c<colonnes;c++){
+                if(caseOccupée(l,c)){
+                    if(plateau[l][c].getCouleur().equals(couleur) && plateau[l][c].craintEchec()){
+                        return plateau[l][c];
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

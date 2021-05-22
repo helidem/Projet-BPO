@@ -78,4 +78,20 @@ public class Tour extends Pièce {
         return false;
 
     }
+
+    @Override
+    public boolean enEchec(Plateau p) {
+        return false;
+    }
+
+    @Override
+    public void setAncienneCoord(Coordonnées ancienneCoord) {
+        return;
+    }
+
+    @Override
+    public Coordonnées getAncienneCoord() {
+        return null;
+    }
+
 }

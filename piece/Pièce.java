@@ -1,9 +1,13 @@
 package piece;
 
 import partie.Coordonnées;
+import partie.Coup;
+import partie.Partie;
 import table.Couleur;
 import table.IPièce;
 import table.Plateau;
+
+import java.util.ArrayList;
 
 public abstract class  Pièce implements IPièce {
 
@@ -40,5 +44,13 @@ public abstract class  Pièce implements IPièce {
     public String type(){
         return (couleur == Couleur.BLANC) ? type.toUpperCase() : type;
     }
+    public abstract boolean enEchec(Plateau p);
+
+    public ArrayList<Coup> coupsPossibles(Plateau p){ //coups possibles des pieces du joueur courant
+       for(IPièce pièce : p.pièces()){
+
+       }
+    }
+
 
 }

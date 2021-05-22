@@ -2,6 +2,7 @@ package piece;
 
 
 import partie.Coordonnées;
+import partie.Coup;
 import table.Couleur;
 import table.IPièce;
 import table.Plateau;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 public class Roi extends Pièce { //un roi est une pièce
 
     private boolean enDanger;
+    private Coordonnées ancienneCoord;
 
     public Roi(Coordonnées coordonnées, Couleur c) { //Pièce p = new Roi(1,1,Couleur.BLANC);
         super( c, coordonnées,"r");
@@ -48,6 +50,14 @@ public class Roi extends Pièce { //un roi est une pièce
 
     }
 
+    public Coordonnées getAncienneCoord() {
+        return ancienneCoord;
+    }
+
+    public void setAncienneCoord(Coordonnées ancienneCoord) {
+        this.ancienneCoord = ancienneCoord;
+    }
+
     /**
      * Regarde si le roi est en échec
      * @param p le plateau
@@ -67,6 +77,48 @@ public class Roi extends Pièce { //un roi est une pièce
         return false;
     }
 
+    public ArrayList<Coup> coupsPossibles(Plateau p){
+        Coup coup = new Coup();
+        ArrayList<Coup> coups = new ArrayList<>();
 
-
+        coup.setCoord(getCoordonnées(),new Coordonnées(getCoordonnées().getX()-1,getCoordonnées().getY()+1));
+        if(coupLegal(coup.getArrivée(),p)){
+            coups.add(coup);
+        }
+        coup.setCoord(getCoordonnées(),new Coordonnées(getCoordonnées().getX(),getCoordonnées().getY()+1));
+        if(coupLegal(coup.getArrivée(),p)){
+            coups.add(coup);
+        }
+        coup.setCoord(getCoordonnées(),new Coordonnées(getCoordonnées().getX()+1,getCoordonnées().getY()+1));
+        if(coupLegal(coup.getArrivée(),p)){
+            coups.add(coup);
+        }
+        coup.setCoord(getCoordonnées(),new Coordonnées(getCoordonnées().getX()+1,getCoordonnées().getY()));
+        if(coupLegal(coup.getArrivée(),p)){
+            coups.add(coup);
+        }
+        coup.setCoord(getCoordonnées(),new Coordonnées(getCoordonnées().getX()+1,getCoordonnées().getY()-1));
+        if(coupLegal(coup.getArrivée(),p)){
+            coups.add(coup);
+        }
+        coup.setCoord(getCoordonnées(),new Coordonnées(getCoordonnées().getX(),getCoordonnées().getY()-1));
+        if(coupLegal(coup.getArrivée(),p)){
+            coups.add(coup);
+        }
+        coup.setCoord(getCoordonnées(),new Coordonnées(getCoordonnées().getX()-1,getCoordonnées().getY()-1));
+        if(coupLegal(coup.getArrivée(),p)){
+            coups.add(coup);
+        }
+        coup.setCoord(getCoordonnées(),new Coordonnées(getCoordonnées().getX()-1,getCoordonnées().getY()));
+        if(coupLegal(coup.getArrivée(),p)){
+            coups.add(coup);
+        }
+        return coups;
+    }
+    public String afficherCoups(Plateau p){
+        StringBuilder sb = new StringBuilder();
+        for(Coup coup : coupsPossibles(p)){
+            sb.append(coup.getArrivée().getX()).append(";").append(coup.getArrivée().getY()).append("\n");
+        }
+    }
 }

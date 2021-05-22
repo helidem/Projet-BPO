@@ -44,14 +44,15 @@ public class Partie {
         {
             Coup coup = new Coup();
 
-            if(!décomposer(ligne, coup,p)){
+            if(!décomposer(ligne, coup,p) ){
                 System.out.print("#");
             }else{
-                p.jouer(coup);
-
+                if(!p.jouer(coup, this)){
+                    System.out.print("#");}
+                else{
                 this.changerJoueur();
                 System.out.println(this);
-                System.out.println(p);
+                System.out.println(p);}
             }
             System.out.print("> ");
             ligne = scanner.nextLine();
@@ -106,5 +107,7 @@ public class Partie {
 
         return true;
     }
+
+
 
 }

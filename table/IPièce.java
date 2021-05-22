@@ -13,4 +13,11 @@ public interface IPièce {
 
     Couleur getCouleur();
 
+    boolean craintEchec();
+
+    boolean enEchec(Plateau p);
+
+    void setAncienneCoord(Coordonnées ancienneCoord);
+    public Coordonnées getAncienneCoord();
+
 }

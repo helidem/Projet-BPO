@@ -79,4 +79,17 @@ public class Plateau {
     public void put(IPièce p) {
         plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
     }
+
+    public boolean caseOccupée(Coordonnées coordonnées){
+        IPièce p = getPièce(coordonnées.getX(), coordonnées.getY());
+        if (p != null)
+            return true;
+        else {
+
+            return false;
+        }
+
+    }
+
+
 }

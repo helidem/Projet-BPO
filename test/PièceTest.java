@@ -6,10 +6,10 @@ import piece.Pièce;
 import piece.Roi;
 import piece.Tour;
 import table.Couleur;
+import table.IPièce;
 import table.Plateau;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PièceTest {
 
@@ -48,11 +48,36 @@ class PièceTest {
             assertFalse(t.coupLegal(new Coordonnées(8,5),plateau));
         }
 
-        @Test
-        void test(){
+       @Test
+        void testGetCoordonnées(){
+            IPièce r = new Roi(new Coordonnées(3,3),Couleur.NOIR);
+            Coordonnées c = new Coordonnées(3,3);
+            Coordonnées c1 = new Coordonnées(89,22);
+            assertEquals(r.getCoordonnées().getX(), c.getX());
+            assertEquals(r.getCoordonnées().getY(), c.getY());
+            assertNotEquals(r.getCoordonnées().getX(), c1.getX());
 
         }
 
+        @Test
+        void testGetCouleur(){
+            IPièce r = new Roi(new Coordonnées(3,3),Couleur.NOIR);
+            assertEquals(Couleur.NOIR,r.getCouleur());
+            assertNotEquals(Couleur.BLANC, r.getCouleur());
+        }
+
+        @Test
+        void testSetCoordonnées(){
+            IPièce r = new Roi(new Coordonnées(5,5),Couleur.NOIR);
+            Coordonnées c = new Coordonnées(5,5);
+            assertEquals(r.getCoordonnées().getX(), c.getX());
+            assertEquals(r.getCoordonnées().getY(), c.getY());
+            r.setCoordonnées(new Coordonnées(3,3));
+            Coordonnées c1 = new Coordonnées(3,3);
+            assertEquals(r.getCoordonnées().getX(), c1.getX());
+            assertEquals(r.getCoordonnées().getY(), c1.getY());
+
+        }
 
 
 }

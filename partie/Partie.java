@@ -48,6 +48,7 @@ public class Partie {
                 System.out.print("#");
             }else{
                 p.jouer(coup);
+
                 this.changerJoueur();
                 System.out.println(this);
                 System.out.println(p);

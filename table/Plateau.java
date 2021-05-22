@@ -4,6 +4,8 @@ package table;
 import partie.Coordonnées;
 import partie.Coup;
 
+import java.util.ArrayList;
+
 public class Plateau {
 
     public static final int lignes = 8;
@@ -26,6 +28,8 @@ public class Plateau {
             System.out.println(" ");
             return;
         }
+
+        //TODO : recuperer le roi du joueur courant et adverse  et tester si il est en echec apres avoir joué, pour savoir si il peut continuer ou pas
 
         if (!p.coupLegal(coup.getArrivée(), this))
             return;
@@ -80,6 +84,11 @@ public class Plateau {
         plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
     }
 
+    /**
+     * Savoir si une case est occupée par une pièce
+     * @param coordonnées
+     * @return
+     */
     public boolean caseOccupée(Coordonnées coordonnées){
         IPièce p = getPièce(coordonnées.getX(), coordonnées.getY());
         if (p != null)
@@ -88,8 +97,26 @@ public class Plateau {
 
             return false;
         }
-
     }
 
+    public boolean caseOccupée( int x, int y){
+        IPièce p = getPièce(x, y);
+        if (p != null) //si la case n'est pas null -> elle est occupée
+            return true;
+        else {
+            return false;
+        }
+    }
 
+    public ArrayList<IPièce> pièces(){
+        ArrayList<IPièce> pièces = new ArrayList<>();
+        for(int l = 0;l<lignes;l++){
+            for(int c = 0;c<colonnes;c++){
+                if(caseOccupée(l,c)){
+                    pièces.add(this.getPièce(l,c));
+                }
+            }
+        }
+        return pièces;
+    }
 }

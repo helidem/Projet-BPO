@@ -32,7 +32,20 @@ public class PlateauTest {
     }
 
     @Test
+    void testRemove(){
+        Plateau plateau = new Plateau();
+        IPièce r = new Roi(new Coordonnées(3,4), Couleur.NOIR);
+        plateau.put(r);
+        assertTrue(plateau.caseOccupée(new Coordonnées(3,4)));
+        plateau.removePièce(r);
+        assertFalse(plateau.caseOccupée(new Coordonnées(3,4)));
+    }
+
+    @Test
     void testJouer(){
+        Plateau plateau = new Plateau();
+        IPièce r = new Roi(new Coordonnées(3,4), Couleur.NOIR);
+        plateau.put(r);
 
     }
 }

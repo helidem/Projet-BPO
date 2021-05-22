@@ -3,7 +3,10 @@ package piece;
 
 import partie.Coordonnées;
 import table.Couleur;
+import table.IPièce;
 import table.Plateau;
+
+import java.util.ArrayList;
 
 public class Roi extends Pièce { //un roi est une pièce
 
@@ -23,12 +26,12 @@ public class Roi extends Pièce { //un roi est une pièce
             return false;
         }
 
-        if(p.getPièce(coord) !=null && p.getPièce(coord).getCouleur() == this.getCouleur()){
+        if(p.caseOccupée(coord) && p.getPièce(coord).getCouleur() == this.getCouleur()){
             System.out.println("tu peux pas manger tes pions");
             return false;
-        }else if(p.getPièce(coord) !=null && p.getPièce(coord).getCouleur() != this.getCouleur()){
+        }else if(p.caseOccupée(coord) && p.getPièce(coord).getCouleur() != this.getCouleur()){
             System.out.println("tu vas manger une pièce");
-            //manger(x,y,p);
+
         }
 
         if(ok){
@@ -45,7 +48,25 @@ public class Roi extends Pièce { //un roi est une pièce
 
     }
 
-    //TODO : regarder si le roi est en echec
+    /**
+     * Regarde si le roi est en échec
+     * @param p le plateau
+     * @return true si le Roi est en echec
+     */
+    public boolean enEchec(Plateau p){
+        ArrayList<IPièce> pièces = p.pièces();
+        for(IPièce pièce : pièces){
+            if(pièce.coupLegal(this.getCoordonnées(),p)){
+                if(!this.getCouleur().equals(pièce.getCouleur())){
+                    System.out.println("en echec");
+                    return true;
+                }
+            }
+        }
+        System.out.println("pas en echec");
+        return false;
+    }
+
 
 
 }

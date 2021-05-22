@@ -34,7 +34,7 @@ public class Tour extends Pièce {
                 if (coord.getY() > getCoordonnées().getY()) { //on monte
                     System.out.println("on monte");
                     for (int i = getCoordonnées().getY() + 1; i < coord.getY(); i++) {
-                        if (p.getPièce(coord.getX(), i) != null) {
+                        if (p.caseOccupée(coord.getX(), i)){
                             System.out.println("obstacle");
                             return false;
                         }
@@ -42,7 +42,7 @@ public class Tour extends Pièce {
                 } else if (coord.getY() < getCoordonnées().getY()) { //on descends
                     System.out.println("on descends");
                     for (int i = getCoordonnées().getY() - 1; i > coord.getY(); i--) {
-                        if (p.getPièce(coord.getX(), i) != null) {
+                        if (p.caseOccupée(coord.getX(), i)) {
                             System.out.println("obstacle");
                             return false;
                         }
@@ -52,7 +52,7 @@ public class Tour extends Pièce {
                 if (coord.getX() > getCoordonnées().getX()) { //on va vers la droite
                     System.out.println("on va vers la droite");
                     for (int i = getCoordonnées().getX() + 1; i < coord.getX(); i++) {
-                        if (p.getPièce(i, coord.getY()) != null) {
+                        if (p.caseOccupée(i, coord.getY())) {
                             System.out.println("obstacle");
                             return false;
                         }
@@ -60,7 +60,7 @@ public class Tour extends Pièce {
                 } else if (coord.getX() < getCoordonnées().getX()) { //on va vers la gauche
                     System.out.println("on va vers la gauche");
                     for (int i = getCoordonnées().getX() - 1; i > coord.getX(); i--) {
-                        if (p.getPièce(i, coord.getY()) != null) {
+                        if (p.caseOccupée(i, coord.getY())) {
                             System.out.println("obstacle");
                             return false;
                         }

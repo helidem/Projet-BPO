@@ -2,6 +2,8 @@ package test;
 
 import org.junit.jupiter.api.Test;
 import partie.Coordonnées;
+import partie.Coup;
+import partie.Partie;
 import piece.Pièce;
 import piece.Roi;
 import piece.Tour;
@@ -79,5 +81,36 @@ class PièceTest {
 
         }
 
+       @Test
+        void testAnnulerCoup(){
+           Partie partie = new Partie();
+           Plateau p = new Plateau();
+           IPièce r = new Roi(new Coordonnées(1,1),Couleur.BLANC);
+           IPièce r2 = new Roi(new Coordonnées(2,5), Couleur.NOIR);
 
+
+           p.put(r);
+           p.put(r2);
+           assertTrue(p.jouer(new Coup(r.getCoordonnées(),new Coordonnées(1,2)),partie));
+           assertTrue(r.getCoordonnées().getX() == new Coordonnées(1,2).getX());
+           assertTrue(r.getCoordonnées().getY() == new Coordonnées(1,2).getY());
+           r.annulerCoup();
+           assertTrue(r.getCoordonnées().getY () == new Coordonnées(1,1).getY());
+           p.put(r, new Coordonnées(4,5));
+           assertTrue(p.jouer(new Coup(r.getCoordonnées(),new Coordonnées(4,6)),partie));
+           assertTrue(r.getCoordonnées().getX() == new Coordonnées(4,6).getX());
+           assertTrue(r.getCoordonnées().getY() == new Coordonnées(4,6).getY());
+            r.annulerCoup();
+           assertTrue(r.getCoordonnées().getX() == new Coordonnées(4,5).getX());
+           assertTrue(r.getCoordonnées().getY() == new Coordonnées(4,5).getY());
+
+
+        }
+
+        @Test
+        void TestCraintEchec(){
+            IPièce r = new Roi(new Coordonnées(2,2), Couleur.NOIR);
+            assertTrue(r.craintEchec());
+
+        }
 }

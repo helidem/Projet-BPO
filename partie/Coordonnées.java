@@ -23,4 +23,12 @@ public class Coordonnées {
     public void setY(int y) {
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return "Coordonnées{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

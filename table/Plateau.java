@@ -29,7 +29,10 @@ public class Plateau {
      */
     public boolean jouer(Coup coup, Partie partie) {
         IPièce p = getPièce(coup.getDépart().getX(), coup.getDépart().getY());
-        p.setAncienneCoord(p.getCoordonnées());
+        if(p ==null){
+            return false;
+        }
+        p.memoriser();
 
         if (caseOccupée(p.getCoordonnées()))
             System.out.println(p.type());
@@ -41,11 +44,13 @@ public class Plateau {
         if (!p.coupLegal(coup.getArrivée(), this))
             return false;
 
+
+
         if(p.craintEchec()){
             removePièce(p);
             put(p, coup.getArrivée());
             if(getRoi(partie.getJoueurCourant()).enEchec(this)){
-                p.setAncienneCoord(p.getAncienneCoord());
+                annulerCoup(p);
                 return false;
             }
         }
@@ -56,9 +61,55 @@ public class Plateau {
 
         removePièce(p);
         put(p, coup.getArrivée());
-        System.out.println(p.afficherCoups(this));
+        if(getRoi(partie.getJoueurAdverse()).enEchecEtMat(this,partie)){
+            System.out.printf("mat");
+        }
         return true;
     }
+
+    public boolean jouerTest(Coup coup, Partie partie) {
+        IPièce p = getPièce(coup.getDépart().getX(), coup.getDépart().getY());
+        if(p ==null){
+            return false;
+        }
+        p.memoriser();
+
+        if (caseOccupée(p.getCoordonnées()))
+            System.out.println(p.type());
+        else {
+            System.out.println(" ");
+            return false;
+        }
+
+        /*if (!p.coupLegal(coup.getArrivée(), this))
+            return false;
+
+        if(p.craintEchec()){
+            removePièce(p);
+            put(p, coup.getArrivée());
+            if(getRoi(partie.getJoueurCourant()).enEchec(this)){
+                annulerCoup(p);
+                return false;
+            }
+        }*/
+
+        /*if(getRoi(partie.getJoueurCourant()).enEchec(this)){
+            return false;
+        }
+*/
+        removePièce(p);
+        put(p, coup.getArrivée());
+        return true;
+    }
+
+
+
+    public void annulerCoup(IPièce p){
+        removePièce(p);
+        p.annulerCoup();
+        put(p);
+    }
+
 
     public IPièce getPièce(Coordonnées coordonnées) {
         return plateau[coordonnées.getX()][coordonnées.getY()];
@@ -83,6 +134,7 @@ public class Plateau {
      * @param p la pièce
      */
     public void put(IPièce p) {
+        p.setCoordonnées(p.getCoordonnées());
         plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
     }
 

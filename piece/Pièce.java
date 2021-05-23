@@ -46,12 +46,7 @@ public abstract class  Pièce implements IPièce {
     }
     public abstract boolean enEchec(Plateau p);
 
-   /* public ArrayList<Coup> coupsPossibles(Plateau p){ //coups possibles des pieces du joueur courant
-       for(IPièce pièce : p.pièces()){
-
-       }
-    }*/
-   public String afficherCoups(Plateau p){
+   /*public String afficherCoups(Plateau p){
        StringBuilder sb = new StringBuilder();
        System.out.println(coupsPossibles(p).size());
        ArrayList<Coup> coups = coupsPossibles(p);
@@ -59,15 +54,14 @@ public abstract class  Pièce implements IPièce {
            sb.append(coup.toString()).append("\n");
        }
        return sb.toString();
-   }
-
+   }*/
 
     public Coordonnées getAncienneCoord() {
         return ancienneCoord;
     }
 
-    public void setAncienneCoord(Coordonnées ancienneCoord) {
-        this.ancienneCoord = ancienneCoord;
+    public void memoriser() {
+        this.ancienneCoord = coordonnées;
     }
 
     public void annulerCoup(){

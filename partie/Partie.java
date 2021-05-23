@@ -2,6 +2,7 @@ package partie;
 
 import joueur.Humain;
 import table.Couleur;
+import table.IPièce;
 import table.Plateau;
 
 import java.util.Scanner;
@@ -99,14 +100,25 @@ public class Partie {
 
         coup.setCoord(départ,arrivée);
 
-        if(!p.getPièce(coup.getDépart().getX(),coup.getDépart().getY()).getCouleur().equals(courant))
-        {
-            System.out.println("pas ta couleur");
+        /*System.out.println("debug : " +coup.getDépart().getX() + ";" + coup.getDépart().getY());
+        System.out.println("debug : " +coup.getArrivée().getX() + ";" + coup.getArrivée().getY());*/
+
+
+       /* for(IPièce pièce : p.pièces()){
+            System.out.println(pièce.getCoordonnées() + pièce.getCouleur().toString());
+        }*/
+
+if(p.getPièce(coup.getDépart().getX(), coup.getDépart().getY()) == null){
+    return false;
+}
+
+        if (!p.getPièce(coup.getDépart().getX(), coup.getDépart().getY()).getCouleur().equals(courant)) {
+          //  System.out.println("pas ta couleur");
             return false;
         }
 
-        return true;
-    }
+            return true;
+        }
 
 
 

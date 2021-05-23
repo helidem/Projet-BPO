@@ -24,4 +24,8 @@ public class Coup {
         this.départ = départ;
         this.arrivée = arrivée;
     }
+
+    public String toString(){
+        return départ.getX() + ";" + départ.getY() + "->" +arrivée.getX() + ";" + arrivée.getY();
+    }
 }

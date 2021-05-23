@@ -1,6 +1,9 @@
 package table;
 
 import partie.Coordonnées;
+import partie.Coup;
+
+import java.util.ArrayList;
 
 public interface IPièce {
      boolean coupLegal(Coordonnées coordonnées, Plateau p);
@@ -18,6 +21,9 @@ public interface IPièce {
     boolean enEchec(Plateau p);
 
     void setAncienneCoord(Coordonnées ancienneCoord);
-    public Coordonnées getAncienneCoord();
+    Coordonnées getAncienneCoord();
+
+    String afficherCoups(Plateau p);
+    ArrayList<Coup> coupsPossibles(Plateau p);
 
 }

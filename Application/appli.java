@@ -20,9 +20,9 @@ public class appli {
         Plateau p = new Plateau();
 
         IPièce r = new Roi(new Coordonnées(3,4),Couleur.NOIR);
-        IPièce r1 = new Roi(new Coordonnées(2,2),Couleur.BLANC);
+        IPièce t1 = new Tour(new Coordonnées(2,2),Couleur.BLANC);
         IPièce t = new Tour(new Coordonnées(5,5),Couleur.NOIR);
-        IPièce t1 = new Tour(new Coordonnées(1,1),Couleur.BLANC);
+        IPièce r1 = new Roi(new Coordonnées(1,2),Couleur.BLANC);
 
 
         p.put(r,r.getCoordonnées());

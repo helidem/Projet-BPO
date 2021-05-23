@@ -2,12 +2,12 @@ package piece;
 
 import partie.Coordonnées;
 import partie.Coup;
-import partie.Partie;
 import table.Couleur;
 import table.IPièce;
 import table.Plateau;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public abstract class  Pièce implements IPièce {
 
@@ -46,11 +46,22 @@ public abstract class  Pièce implements IPièce {
     }
     public abstract boolean enEchec(Plateau p);
 
-    public ArrayList<Coup> coupsPossibles(Plateau p){ //coups possibles des pieces du joueur courant
+   /* public ArrayList<Coup> coupsPossibles(Plateau p){ //coups possibles des pieces du joueur courant
        for(IPièce pièce : p.pièces()){
 
        }
-    }
+    }*/
+   public String afficherCoups(Plateau p){
+       StringBuilder sb = new StringBuilder();
+       System.out.println(coupsPossibles(p).size());
+       ArrayList<Coup> coups = coupsPossibles(p);
+       for(Coup coup : coups){
+           sb.append(coup.toString()).append("\n");
+       }
+       return sb.toString();
+   }
+
+    public abstract ArrayList<Coup> coupsPossibles(Plateau p);
 
 
 }

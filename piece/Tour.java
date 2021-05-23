@@ -1,8 +1,11 @@
 package piece;
 
 import partie.Coordonnées;
+import partie.Coup;
 import table.Couleur;
 import table.Plateau;
+
+import java.util.ArrayList;
 
 public class Tour extends Pièce {
     public Tour(Coordonnées coordonnées, Couleur c) {
@@ -92,6 +95,45 @@ public class Tour extends Pièce {
     @Override
     public Coordonnées getAncienneCoord() {
         return null;
+    }
+
+    public ArrayList<Coup> coupsPossibles(Plateau p){
+        Coup coup = new Coup();
+        ArrayList<Coup> coups = new ArrayList<>();
+
+        Coordonnées coord = new Coordonnées(getCoordonnées().getX()+1,getCoordonnées().getY());//vers la droite
+
+        coup.setCoord(getCoordonnées(),coord);
+        while(coord.getX() <8&& coord.getX() >=0&&coord.getY()<8&&coord.getY()>=0 && coupLegal(coord,p)){
+            coups.add(new Coup(getCoordonnées(),new Coordonnées(coord.getX(), coord.getY())));
+            coord.setX(coord.getX()+1);
+        }
+
+
+        coord.setX(getCoordonnées().getX()-1);//vers la gauche
+        coup.setCoord(getCoordonnées(),coord);
+        while(coord.getX() <8&& coord.getX() >=0&&coord.getY()<8&&coord.getY()>=0 && coupLegal(coord,p)){
+            coups.add(new Coup(getCoordonnées(),new Coordonnées(coord.getX(), coord.getY())));
+            coord.setX(coord.getX()-1);
+        }
+
+        coord.setX(getCoordonnées().getX());//on reste sur la meme ligne
+        coord.setY(getCoordonnées().getY()+1);//mais on va vers le haut
+        coup.setCoord(getCoordonnées(),coord);
+        while(coord.getX() <8&& coord.getX() >=0&&coord.getY()<8&&coord.getY()>=0 && coupLegal(coord,p)){
+            coups.add(new Coup(getCoordonnées(),new Coordonnées(coord.getX(), coord.getY())));
+            coord.setY(coord.getY()+1);
+        }
+
+        coord.setY(getCoordonnées().getY()-1);//vers le bas
+        coup.setCoord(getCoordonnées(),coord);
+        while(coord.getX() <8&& coord.getX() >=0&&coord.getY()<8&&coord.getY()>=0 && coupLegal(coord,p)){
+            coups.add(new Coup(getCoordonnées(),new Coordonnées(coord.getX(), coord.getY())));
+            coord.setY(coord.getY()-1);
+        }
+
+        return coups;
+
     }
 
 }

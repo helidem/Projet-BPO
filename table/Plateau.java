@@ -46,8 +46,10 @@ public class Plateau {
         if(getRoi(partie.getJoueurCourant()).enEchec(this)){
             return false;
         }
+
         removePièce(p);
         put(p, coup.getArrivée());
+        System.out.println(p.afficherCoups(this));
         return true;
     }
 

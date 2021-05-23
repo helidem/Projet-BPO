@@ -29,6 +29,8 @@ public class Plateau {
      */
     public boolean jouer(Coup coup, Partie partie) {
         IPièce p = getPièce(coup.getDépart().getX(), coup.getDépart().getY());
+        p.setAncienneCoord(p.getCoordonnées());
+
         if (caseOccupée(p.getCoordonnées()))
             System.out.println(p.type());
         else {
@@ -40,7 +42,6 @@ public class Plateau {
             return false;
 
         if(p.craintEchec()){
-            p.setAncienneCoord(p.getCoordonnées());
             removePièce(p);
             put(p, coup.getArrivée());
             if(getRoi(partie.getJoueurCourant()).enEchec(this)){

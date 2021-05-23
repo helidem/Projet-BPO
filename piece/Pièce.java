@@ -5,14 +5,14 @@ import partie.Coup;
 import table.Couleur;
 import table.IPièce;
 import table.Plateau;
-
 import java.util.ArrayList;
-import java.util.Collection;
+
 
 public abstract class  Pièce implements IPièce {
 
     private Couleur couleur;
     private Coordonnées coordonnées;
+    private Coordonnées ancienneCoord;
     private String type;
 
     public Pièce(Couleur couleur, Coordonnées coordonnées, String type) {
@@ -60,6 +60,19 @@ public abstract class  Pièce implements IPièce {
        }
        return sb.toString();
    }
+
+
+    public Coordonnées getAncienneCoord() {
+        return ancienneCoord;
+    }
+
+    public void setAncienneCoord(Coordonnées ancienneCoord) {
+        this.ancienneCoord = ancienneCoord;
+    }
+
+    public void annulerCoup(){
+       setCoordonnées(getAncienneCoord());
+    }
 
     public abstract ArrayList<Coup> coupsPossibles(Plateau p);
 

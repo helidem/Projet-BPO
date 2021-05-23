@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Roi extends Pièce { //un roi est une pièce
 
     private boolean enDanger;
-    private Coordonnées ancienneCoord;
+
 
     public Roi(Coordonnées coordonnées, Couleur c) { //Pièce p = new Roi(1,1,Couleur.BLANC);
         super( c, coordonnées,"r");
@@ -48,15 +48,6 @@ public class Roi extends Pièce { //un roi est une pièce
 
     public boolean craintEchec(){
         return true;
-
-    }
-
-    public Coordonnées getAncienneCoord() {
-        return ancienneCoord;
-    }
-
-    public void setAncienneCoord(Coordonnées ancienneCoord) {
-        this.ancienneCoord = ancienneCoord;
     }
 
     /**
@@ -85,12 +76,14 @@ public class Roi extends Pièce { //un roi est une pièce
 
             for(Coup coup : coups){
                 if(p.jouer(coup,partie)){
-                    if(!this.enEchec(p))
+                    if(!this.enEchec(p)){
+                        annulerCoup();
+                        return false;
+                    }
                 }
             }
         }
-
-
+        return true;
     }
 
     public ArrayList<Coup> coupsPossibles(Plateau p){

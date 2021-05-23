@@ -2,6 +2,8 @@ package test;
 
 import org.junit.jupiter.api.Test;
 import partie.Coordonnées;
+import partie.Coup;
+import partie.Partie;
 import piece.Roi;
 import piece.Tour;
 import table.Couleur;
@@ -42,19 +44,36 @@ public class PlateauTest {
 
     @Test
     void testAnnulerCoup(){
-        Plateau plateau = new Plateau();
-        IPièce r = new Roi(new Coordonnées(3,4),Couleur.NOIR);
-        plateau.put(r);
-        assertTrue(plateau.caseOccupée(new Coordonnées(3,4)));
-        assertEquals(r.getCoordonnées().getX(), new Coordonnées(3,4).getX());
-        r.annulerCoup();
+        Partie partie = new Partie();
+        Plateau p = new Plateau();
+        IPièce r = new Roi(new Coordonnées(1,1),Couleur.BLANC);
+        IPièce r2 = new Roi(new Coordonnées(2,5), Couleur.NOIR);
+        p.put(r);
+        p.put(r2);
+        assertTrue(p.jouer(new Coup(r.getCoordonnées(),new Coordonnées(1,2)),partie));
+        p.annulerCoup(r);
+        assertTrue(r.getCoordonnées().getY () == new Coordonnées(1,1).getY());
+        assertTrue(p.caseOccupée(new Coordonnées(1,1)));
+        assertTrue(r.getCoordonnées().getX() == new Coordonnées(1,1).getX());
+        assertTrue(r.getCoordonnées().getY() == new Coordonnées(1,1).getY());
+    }
 
+    @Test
+    void testJouer(){
+        Partie partie = new Partie();
+        Plateau p = new Plateau();
+        IPièce r = new Roi(new Coordonnées(6 ,7),Couleur.NOIR);
+        IPièce r1 = new Roi(new Coordonnées(6,3),Couleur.BLANC);
+        p.put(r);
+        p.put(r1);
+        assertTrue(p.jouer(new Coup(new Coordonnées(6,7), new Coordonnées(6,6)),partie));
+        assertTrue(p.caseOccupée(new Coordonnées(6,6)));
+        assertFalse(p.caseOccupée(new Coordonnées(6,7)));
+        assertEquals(r.getCoordonnées().getX(), new Coordonnées(6,6).getX());
 
-
-
-
-
-
-
+        assertFalse(p.jouer(new Coup(new Coordonnées(6,3), new Coordonnées(6,9)),partie));
+        assertFalse(p.caseOccupée(new Coordonnées(6,7)));
+        assertTrue(p.caseOccupée(new Coordonnées(6,3)));
+        assertEquals(r1.getCoordonnées().getX(), new Coordonnées(6,3).getX());
     }
 }

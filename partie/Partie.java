@@ -45,7 +45,6 @@ public class Partie {
         while (!ligne.equals("fin") || finie) // Tant qu'entrée n'est pas "fin"
         {
             Coup coup = new Coup();
-
             if (!décomposer(ligne, coup, p)) {
                 System.out.print("#");
             } else {

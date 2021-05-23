@@ -28,6 +28,10 @@ public class Plateau {
      * @return true si le coup peut être joué, sinon false
      */
     public boolean jouer(Coup coup, Partie partie) {
+        if(!(coup.getDépart().getX() <8 && coup.getDépart().getX() >=0 && coup.getDépart().getY()<8 &&
+                coup.getDépart().getY()>=0 && coup.getArrivée().getX() <8 && coup.getArrivée().getX() >=0 && coup.getArrivée().getY() <8 && coup.getArrivée().getY()>=0)){
+            return false;
+        }
         IPièce p = getPièce(coup.getDépart().getX(), coup.getDépart().getY());
         if(p ==null){
             return false;
@@ -68,7 +72,12 @@ public class Plateau {
     }
 
     public boolean jouerTest(Coup coup, Partie partie) {
+        if(!(coup.getDépart().getX() <8 && coup.getDépart().getX() >=0 && coup.getDépart().getY()<8 &&
+                coup.getDépart().getY()>=0 && coup.getArrivée().getX() <8 && coup.getArrivée().getX() >=0 && coup.getArrivée().getY() <8 && coup.getArrivée().getY()>=0)){
+            return false;
+        }
         IPièce p = getPièce(coup.getDépart().getX(), coup.getDépart().getY());
+
         if(p ==null){
             return false;
         }
@@ -81,22 +90,6 @@ public class Plateau {
             return false;
         }
 
-        /*if (!p.coupLegal(coup.getArrivée(), this))
-            return false;
-
-        if(p.craintEchec()){
-            removePièce(p);
-            put(p, coup.getArrivée());
-            if(getRoi(partie.getJoueurCourant()).enEchec(this)){
-                annulerCoup(p);
-                return false;
-            }
-        }*/
-
-        /*if(getRoi(partie.getJoueurCourant()).enEchec(this)){
-            return false;
-        }
-*/
         removePièce(p);
         put(p, coup.getArrivée());
         return true;
@@ -180,7 +173,6 @@ public class Plateau {
         if (p != null)
             return true;
         else {
-
             return false;
         }
     }
@@ -232,7 +224,7 @@ public class Plateau {
      * @param couleur la couleur du roi souhaitée
      * @return le roi
      */
-    public IPièce getRoi(Couleur couleur){
+    private IPièce getRoi(Couleur couleur){
         for(int l = 0;l<lignes;l++){
             for(int c = 0;c<colonnes;c++){
                 if(caseOccupée(l,c)){

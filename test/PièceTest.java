@@ -87,8 +87,6 @@ class PièceTest {
            Plateau p = new Plateau();
            IPièce r = new Roi(new Coordonnées(1,1),Couleur.BLANC);
            IPièce r2 = new Roi(new Coordonnées(2,5), Couleur.NOIR);
-
-
            p.put(r);
            p.put(r2);
            assertTrue(p.jouer(new Coup(r.getCoordonnées(),new Coordonnées(1,2)),partie));
@@ -111,6 +109,20 @@ class PièceTest {
         void TestCraintEchec(){
             IPièce r = new Roi(new Coordonnées(2,2), Couleur.NOIR);
             assertTrue(r.craintEchec());
+
+        }
+
+        @Test
+        void TestEnEchec(){
+            Plateau plateau = new Plateau();
+            IPièce roi = new Roi(new Coordonnées(6,5),Couleur.NOIR);
+            IPièce tour = new Tour(new Coordonnées(3,5),Couleur.BLANC);
+            plateau.put(roi);
+            plateau.put(tour);
+            assertTrue(roi.enEchec(plateau));
+
+            plateau.jouer(new Coup(new Coordonnées(6,5), new Coordonnées(7,7)),new Partie());
+
 
         }
 }

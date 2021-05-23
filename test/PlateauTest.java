@@ -8,8 +8,7 @@ import table.Couleur;
 import table.IPièce;
 import table.Plateau;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PlateauTest {
 
@@ -42,11 +41,20 @@ public class PlateauTest {
     }
 
     @Test
-    void testJouer(){
+    void testAnnulerCoup(){
         Plateau plateau = new Plateau();
-        IPièce r = new Roi(new Coordonnées(3,4), Couleur.NOIR);
-
+        IPièce r = new Roi(new Coordonnées(3,4),Couleur.NOIR);
         plateau.put(r);
+        assertTrue(plateau.caseOccupée(new Coordonnées(3,4)));
+        assertEquals(r.getCoordonnées().getX(), new Coordonnées(3,4).getX());
+        r.annulerCoup();
+
+
+
+
+
+
+
 
     }
 }

@@ -22,16 +22,14 @@ public class Roi extends Pièce { //un roi est une pièce
     boolean ok = ((getCoordonnées().getX() - coord.getX() <= 1 && getCoordonnées().getY() - coord.getY() <= 1) && (getCoordonnées().getY() - coord.getX() >= -1 && getCoordonnées().getY() - coord.getY() >= -1)) &&
             ( (coord.getX() - getCoordonnées().getX() <= 1 && coord.getY() - getCoordonnées().getY() <= 1) && (coord.getX() - getCoordonnées().getX() >= -1 && coord.getY() - getCoordonnées().getY() >= -1));
         if(!(coord.getX() >= 0 && coord.getY() >= 0 && coord.getX() <= 7 && coord.getY() <=7)){
-            
+
             return false;
         }
 
         if(p.caseOccupée(coord) && p.getPièce(coord).getCouleur() == this.getCouleur()){
-
             return false;
         }else if(p.caseOccupée(coord) && p.getPièce(coord).getCouleur() != this.getCouleur()){
-
-
+            //une pièce va être mangée
         }
 
         if(ok){
@@ -76,7 +74,7 @@ public class Roi extends Pièce { //un roi est une pièce
             }
             p.annulerCoup(pièces.get(pièce));
         }
-        System.out.printf("mat");
+        partie.setFinie(true);
         return true;
     }
 

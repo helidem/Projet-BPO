@@ -21,6 +21,12 @@ public class Plateau {
         plateau = new IPièce[lignes][colonnes];
     }
 
+    /**
+     * Permet de savoir si le cou peut être joué
+     * @param coup le coup
+     * @param partie la partie en cours
+     * @return true si le coup peut être joué, sinon false
+     */
     public boolean jouer(Coup coup, Partie partie) {
         IPièce p = getPièce(coup.getDépart().getX(), coup.getDépart().getY());
         if (caseOccupée(p.getCoordonnées()))
@@ -62,7 +68,7 @@ public class Plateau {
     }
 
     /**
-     * Place une pièce dans le plateau
+     * Place une pièce dans le plateau dans les coordonnées données
      * @param p la pièce à mettre
      * @param coordonnées la coordonnée de la case désirée
      */
@@ -71,10 +77,26 @@ public class Plateau {
         plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
     }
 
+    /**
+     * Permet de placer la pièce dans ses propres coordonnées
+     * @param p la pièce
+     */
+    public void put(IPièce p) {
+        plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
+    }
+
+    /**
+     * Retite la pièce du plateau
+     * @param p la pièce
+     */
     public void removePièce(IPièce p) {
         plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = null;
     }
 
+    /**
+     * Permet d'afficher le plateau
+     * @return le plateau
+     */
     public String toString() {
         StringBuilder s = new StringBuilder();
         s.append("    a   b   c   d   e   f   g   h    \n");
@@ -93,10 +115,6 @@ public class Plateau {
         }
         s.append("    a   b   c   d   e   f   g   h    \n");
         return s.toString();
-    }
-
-    public void put(IPièce p) {
-        plateau[p.getCoordonnées().getX()][p.getCoordonnées().getY()] = p;
     }
 
     /**
@@ -123,6 +141,10 @@ public class Plateau {
         }
     }
 
+    /**
+     * Permet de récuperer toutes les pièces du plateau
+     * @return la liste des pièces du plateau
+     */
     public ArrayList<IPièce> pièces(){
         ArrayList<IPièce> pièces = new ArrayList<>();
         for(int l = 0;l<lignes;l++){
@@ -135,6 +157,28 @@ public class Plateau {
         return pièces;
     }
 
+    /**
+     * Permet de récuperer toutes le pièces du plateau d'une couleur donnée
+     * @param couleur la couleur souhaitée
+     * @return la liste des pièces de la couleur
+     */
+    public ArrayList<IPièce> pièces(Couleur couleur){
+        ArrayList<IPièce> pièces = new ArrayList<>();
+        for(int l = 0;l<lignes;l++){
+            for(int c = 0;c<colonnes;c++){
+                if(caseOccupée(l,c) && plateau[l][c].getCouleur().equals(couleur)){
+                    pièces.add(this.getPièce(l,c));
+                }
+            }
+        }
+        return pièces;
+    }
+
+    /**
+     * Permet de récuperer le roi d'une couleur donnée
+     * @param couleur la couleur du roi souhaitée
+     * @return le roi
+     */
     public IPièce getRoi(Couleur couleur){
         for(int l = 0;l<lignes;l++){
             for(int c = 0;c<colonnes;c++){

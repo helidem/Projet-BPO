@@ -3,6 +3,7 @@ package piece;
 
 import partie.Coordonnées;
 import partie.Coup;
+import partie.Partie;
 import table.Couleur;
 import table.IPièce;
 import table.Plateau;
@@ -75,6 +76,21 @@ public class Roi extends Pièce { //un roi est une pièce
         }
         System.out.println("pas en echec");
         return false;
+    }
+
+    public boolean enEchecEtMat(Plateau p, Partie partie){
+        ArrayList<IPièce> pièces = p.pièces(getCouleur());
+        for(int pièce = 0; pièce< pièces.size();pièce++){
+            ArrayList<Coup> coups = pièces.get(pièce).coupsPossibles(p);
+
+            for(Coup coup : coups){
+                if(p.jouer(coup,partie)){
+                    if(!this.enEchec(p))
+                }
+            }
+        }
+
+
     }
 
     public ArrayList<Coup> coupsPossibles(Plateau p){

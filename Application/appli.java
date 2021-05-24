@@ -2,33 +2,32 @@ package Application;
 
 
 import partie.Coordonnées;
-import partie.Coup;
+
 import partie.Partie;
 import table.Couleur;
-
-import piece.Roi;
-import piece.Tour;
 import table.IPièce;
 import table.Plateau;
 
-import java.util.Scanner;
 
 
 public class appli {
     public static void main(String[] args) {
         Partie partie = new Partie();
         Plateau p = new Plateau();
+        PieceFactory pf = new PieceFactory();
 
-        IPièce r = new Roi(new Coordonnées(6 ,7),Couleur.NOIR);
-        IPièce r1 = new Roi(new Coordonnées(6,5),Couleur.BLANC);
-        IPièce t1 = new Tour(new Coordonnées(0,1),Couleur.BLANC);
-
+        /*--------------PLACER ICI LES PIECES--------------
 
 
+        exemple : pf.getRoi(1,1,Couleur.BLANC);
 
-        p.put(r);
-        p.put(t1);
-        p.put(r1);
+
+
+
+
+         */
+
+        pf.defaut(p);
 
         partie.commencer(p);
 

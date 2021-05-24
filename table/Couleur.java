@@ -1,5 +1,4 @@
 package table;
-
-public enum Couleur {
+ public enum Couleur {
      BLANC,NOIR
 }

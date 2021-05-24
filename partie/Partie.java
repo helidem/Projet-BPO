@@ -2,7 +2,6 @@ package partie;
 
 import joueur.Humain;
 import table.Couleur;
-import table.IPièce;
 import table.Plateau;
 
 import java.util.Scanner;
@@ -42,7 +41,7 @@ public class Partie {
         System.out.println(this);
         System.out.print("> ");
         String ligne = scanner.nextLine();
-        while (!ligne.equals("fin") || finie) // Tant qu'entrée n'est pas "fin"
+        while (!ligne.equals("fin")) // Tant qu'entrée n'est pas "fin"
         {
             Coup coup = new Coup();
             if (!décomposer(ligne, coup, p)) {
@@ -51,23 +50,27 @@ public class Partie {
                 if (!p.jouer(coup, this)) {
                     System.out.print("#");
                 } else {
+                    if(finie){
+                        System.out.println("Le vainqueur est "+this);
+                        break;
+                    }
                     this.changerJoueur();
                     System.out.println(this);
                     System.out.println(p);
                 }
             }
+
             System.out.print("> ");
             ligne = scanner.nextLine();
         }
+        System.out.println(p);
+
         scanner.close();
     }
 
     private boolean décomposer(String ligne, Coup coup, Plateau p) {
-        Scanner scanner = new Scanner(ligne);
-
         ligne.toLowerCase();
 
-        // On vérifie si l'entrée est de taille 7
         if (ligne.length() != 4) {
             return false;
         }
@@ -112,7 +115,6 @@ public class Partie {
         }
 
         if (!p.getPièce(coup.getDépart().getX(), coup.getDépart().getY()).getCouleur().equals(courant)) {
-            //  System.out.println("pas ta couleur");
             return false;
         }
 

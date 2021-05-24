@@ -1,12 +1,10 @@
 package test;
 
+import Application.PieceFactory;
 import org.junit.jupiter.api.Test;
 import partie.Coordonnées;
 import partie.Coup;
 import partie.Partie;
-import piece.Pièce;
-import piece.Roi;
-import piece.Tour;
 import table.Couleur;
 import table.IPièce;
 import table.Plateau;
@@ -17,8 +15,8 @@ class PièceTest {
 
         @Test
         void testCoupLegal(){
-
-            Pièce p = new Roi(new Coordonnées(1,1),Couleur.BLANC);
+            PieceFactory pf = new PieceFactory();
+            IPièce p = pf.getRoi(1,1,Couleur.BLANC);
             Plateau pla = new Plateau();
             pla.put(p);
             assertFalse(p.coupLegal(new Coordonnées(-1,-1),pla));
@@ -37,7 +35,7 @@ class PièceTest {
             assertTrue(p.coupLegal(new Coordonnées(4,4),pla));
 
             Plateau plateau = new Plateau();
-            Pièce t = new Tour(new Coordonnées(5,5), Couleur.NOIR);
+            IPièce t = pf.getTour(5,5, Couleur.NOIR);
             plateau.put(t);
             assertFalse(t.coupLegal(new Coordonnées(10,10),plateau));
             assertTrue(t.coupLegal(new Coordonnées(1,5),plateau));
@@ -51,42 +49,12 @@ class PièceTest {
         }
 
        @Test
-        void testGetCoordonnées(){
-            IPièce r = new Roi(new Coordonnées(3,3),Couleur.NOIR);
-            Coordonnées c = new Coordonnées(3,3);
-            Coordonnées c1 = new Coordonnées(89,22);
-            assertEquals(r.getCoordonnées().getX(), c.getX());
-            assertEquals(r.getCoordonnées().getY(), c.getY());
-            assertNotEquals(r.getCoordonnées().getX(), c1.getX());
-
-        }
-
-        @Test
-        void testGetCouleur(){
-            IPièce r = new Roi(new Coordonnées(3,3),Couleur.NOIR);
-            assertEquals(Couleur.NOIR,r.getCouleur());
-            assertNotEquals(Couleur.BLANC, r.getCouleur());
-        }
-
-        @Test
-        void testSetCoordonnées(){
-            IPièce r = new Roi(new Coordonnées(5,5),Couleur.NOIR);
-            Coordonnées c = new Coordonnées(5,5);
-            assertEquals(r.getCoordonnées().getX(), c.getX());
-            assertEquals(r.getCoordonnées().getY(), c.getY());
-            r.setCoordonnées(new Coordonnées(3,3));
-            Coordonnées c1 = new Coordonnées(3,3);
-            assertEquals(r.getCoordonnées().getX(), c1.getX());
-            assertEquals(r.getCoordonnées().getY(), c1.getY());
-
-        }
-
-       @Test
         void testAnnulerCoup(){
+           PieceFactory pf = new PieceFactory();
            Partie partie = new Partie();
            Plateau p = new Plateau();
-           IPièce r = new Roi(new Coordonnées(1,1),Couleur.BLANC);
-           IPièce r2 = new Roi(new Coordonnées(2,5), Couleur.NOIR);
+           IPièce r = pf.getRoi(1,1,Couleur.BLANC);
+           IPièce r2 = pf.getRoi(2,5, Couleur.NOIR);
            p.put(r);
            p.put(r2);
            assertTrue(p.jouer(new Coup(r.getCoordonnées(),new Coordonnées(1,2)),partie));
@@ -107,16 +75,19 @@ class PièceTest {
 
         @Test
         void TestCraintEchec(){
-            IPièce r = new Roi(new Coordonnées(2,2), Couleur.NOIR);
+            PieceFactory pf = new PieceFactory();
+            IPièce r = pf.getRoi(2,2, Couleur.NOIR);
+            IPièce t = pf.getTour(3,3, Couleur.NOIR);
             assertTrue(r.craintEchec());
-
+            assertFalse(t.craintEchec());
         }
 
         @Test
         void TestEnEchec(){
+            PieceFactory pf = new PieceFactory();
             Plateau plateau = new Plateau();
-            IPièce roi = new Roi(new Coordonnées(6,5),Couleur.NOIR);
-            IPièce tour = new Tour(new Coordonnées(3,5),Couleur.BLANC);
+            IPièce roi =  pf.getRoi(6,5,Couleur.NOIR);
+            IPièce tour = pf.getTour(3,5,Couleur.BLANC);
             plateau.put(roi);
             plateau.put(tour);
             assertTrue(roi.enEchec(plateau));
@@ -127,24 +98,27 @@ class PièceTest {
 
         @Test
         void TestEnEchecEtMat(){
-            /*Partie partie = new Partie();
-            Plateau plateau = new Plateau();
-            IPièce roi = new Roi(new Coordonnées(6,5),Couleur.NOIR);
-            IPièce tour = new Tour(new Coordonnées(3,5),Couleur.BLANC);
-            plateau.put(roi);
-            plateau.put(tour);
-            assertTrue(roi.enEchecEtMat(plateau,partie)); pq ca marche ?*/
             Partie partie = new Partie();
-            Plateau p = new Plateau();
-            IPièce r = new Roi(new Coordonnées(0 ,0),Couleur.NOIR);
-            IPièce r1 = new Roi(new Coordonnées(2,0),Couleur.BLANC);
-            IPièce t1 = new Tour(new Coordonnées(0,6),Couleur.BLANC);
-            p.put(r);
-            p.put(t1);
-            p.put(r1);
-            partie.commencer(p);
+            Plateau plateau = new Plateau();
+            PieceFactory pf = new PieceFactory();
+            IPièce roi = pf.getRoi(1,1,Couleur.NOIR);
+            IPièce roi2 = pf.getRoi(6,5,Couleur.BLANC);
+            IPièce tour = pf.getTour(4,4,Couleur.BLANC);
+            plateau.put(roi);
+            plateau.put(roi2);
+            plateau.put(tour);
+            System.out.println(plateau);
+            plateau.jouer(new Coup(tour.getCoordonnées(),new Coordonnées(4,5)),partie);
+            System.out.println(plateau);
+            assertFalse(roi.enEchecEtMat(plateau,partie));
 
-            assertTrue(r.enEchecEtMat(p,partie));
+            plateau.removePièce(roi);
+            plateau.removePièce(roi2);
+            plateau.removePièce(tour);
 
+            pf.defaut(plateau);
+            System.out.println(plateau);
+            plateau.jouer(new Coup(new Coordonnées(1,6),new Coordonnées(1,7)),partie);
+            assertTrue(plateau.getPièce(4,7).enEchecEtMat(plateau,partie));
         }
 }

@@ -120,9 +120,31 @@ class PièceTest {
             plateau.put(roi);
             plateau.put(tour);
             assertTrue(roi.enEchec(plateau));
+            plateau.put(roi,new Coordonnées(6,3));
+            assertFalse(roi.enEchec(plateau));
 
-            plateau.jouer(new Coup(new Coordonnées(6,5), new Coordonnées(7,7)),new Partie());
+        }
 
+        @Test
+        void TestEnEchecEtMat(){
+            /*Partie partie = new Partie();
+            Plateau plateau = new Plateau();
+            IPièce roi = new Roi(new Coordonnées(6,5),Couleur.NOIR);
+            IPièce tour = new Tour(new Coordonnées(3,5),Couleur.BLANC);
+            plateau.put(roi);
+            plateau.put(tour);
+            assertTrue(roi.enEchecEtMat(plateau,partie)); pq ca marche ?*/
+            Partie partie = new Partie();
+            Plateau p = new Plateau();
+            IPièce r = new Roi(new Coordonnées(0 ,0),Couleur.NOIR);
+            IPièce r1 = new Roi(new Coordonnées(2,0),Couleur.BLANC);
+            IPièce t1 = new Tour(new Coordonnées(0,6),Couleur.BLANC);
+            p.put(r);
+            p.put(t1);
+            p.put(r1);
+            partie.commencer(p);
+
+            assertTrue(r.enEchecEtMat(p,partie));
 
         }
 }

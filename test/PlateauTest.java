@@ -76,4 +76,31 @@ public class PlateauTest {
         assertTrue(p.caseOccupée(new Coordonnées(6,3)));
         assertEquals(r1.getCoordonnées().getX(), new Coordonnées(6,3).getX());
     }
+
+    @Test
+    void testToString(){
+        Plateau p = new Plateau();
+        String s = new String("    a   b   c   d   e   f   g   h    \n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "8 |   |   |   |   |   |   |   |   | 8\n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "7 |   |   |   |   |   |   |   |   | 7\n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "6 |   |   |   |   |   |   |   |   | 6\n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "5 |   |   |   |   |   |   |   |   | 5\n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "4 |   |   |   |   |   |   |   |   | 4\n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "3 |   |   |   |   |   |   |   |   | 3\n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "2 |   |   |   |   |   |   |   |   | 2\n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "1 |   |   |   |   |   |   |   |   | 1\n" +
+                "   --- --- --- --- --- --- --- ---\n" +
+                "    a   b   c   d   e   f   g   h    ");
+        assertEquals(p.toString(),s);
+
+
+    }
 }

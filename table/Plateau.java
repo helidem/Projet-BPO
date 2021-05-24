@@ -95,14 +95,11 @@ public class Plateau {
         return true;
     }
 
-
-
     public void annulerCoup(IPièce p){
         removePièce(p);
         p.annulerCoup();
         put(p);
     }
-
 
     public IPièce getPièce(Coordonnées coordonnées) {
         return plateau[coordonnées.getX()][coordonnées.getY()];

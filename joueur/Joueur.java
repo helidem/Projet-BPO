@@ -8,9 +8,6 @@ import piece.Pièce;
 import java.util.ArrayList;
 
 public abstract class Joueur implements IJoueur {
-    private Couleur camp;
-    private ArrayList<Pièce> joueurPièces = new ArrayList<Pièce>();
-
     public Joueur(){
 
     }

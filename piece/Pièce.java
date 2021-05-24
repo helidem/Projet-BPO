@@ -37,13 +37,10 @@ public abstract class  Pièce implements IPièce {
 
     public abstract boolean craintEchec();
 
-    public boolean verifierEchec(){
-        return false;
-    }
-
     public String type(){
         return (couleur == Couleur.BLANC) ? type.toUpperCase() : type;
     }
+
     public abstract boolean enEchec(Plateau p);
 
    /*public String afficherCoups(Plateau p){

@@ -48,8 +48,6 @@ public class Plateau {
         if (!p.coupLegal(coup.getArrivée(), this))
             return false;
 
-
-
         if(p.craintEchec()){
             removePièce(p);
             put(p, coup.getArrivée());
@@ -72,10 +70,10 @@ public class Plateau {
     }
 
     /**
-     * Jouer un coup
+     * Permet à la méthode enEchecEtMat de la classe Roi de jouer sans tester l'echec
      * @param coup à jouer
      * @param partie en cours
-     * @return
+     * @return true si le coup peut être joué
      */
     public boolean jouerEchec(Coup coup, Partie partie) {
         if(!(coup.getDépart().getX() <8 && coup.getDépart().getX() >=0 && coup.getDépart().getY()<8 &&
@@ -102,7 +100,7 @@ public class Plateau {
     }
 
     /**
-     * Annuler un coup, replace une pièce ses anciennes coorodonnées
+     * Annuler un coup, replace une pièce sur ses anciennes coorodonnées
      * @param p pièce
      */
     public void annulerCoup(IPièce p){
@@ -173,7 +171,7 @@ public class Plateau {
     /**
      * Savoir si une case est occupée par une pièce
      * @param coordonnées à vérifier
-     * @return
+     * @return true si la case est occupée
      */
     public boolean caseOccupée(Coordonnées coordonnées){
         IPièce p = getPièce(coordonnées.getX(), coordonnées.getY());

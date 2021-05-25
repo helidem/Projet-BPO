@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>partie.Coordonnées</OriginalElement>
+  <nodes>
+    <node x="151.5736692665581" y="986.0">piece.Pièce</node>
+    <node x="542.8708093869732" y="268.0">partie.IJoueur</node>
+    <node x="195.00224069512956" y="434.0">joueur.IA</node>
+    <node x="397.5736692665581" y="434.0">table.Couleur</node>
+    <node x="52.875" y="1158.0">piece.Tour</node>
+    <node x="401.5736692665581" y="351.0">joueur.Joueur</node>
+    <node x="580.6743808155446" y="1276.0">Application.PieceFactory</node>
+    <node x="574.2279522441161" y="709.0">table.IPièce</node>
+    <node x="629.8410474822113" y="1359.0">Application.appli</node>
+    <node x="636.3593835522724" y="434.0">joueur.Humain</node>
+    <node x="387.1986692665581" y="138.0">partie.Coup</node>
+    <node x="589.430812123701" y="527.0">partie.Partie</node>
+    <node x="388.96652640941534" y="0.0">partie.Coordonnées</node>
+    <node x="417.0328236179522" y="1170.5">piece.Roi</node>
+    <node x="609.585095101259" y="893.0">table.Plateau</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="table.Plateau" target="table.IPièce" relationship="TO_MANY">
+      <point x="14.428571428571445" y="-15.5" />
+      <point x="674.5136665298303" y="851.0" />
+      <point x="701.7279522441161" y="851.0" />
+      <point x="25.5" y="50.0" />
+    </edge>
+    <edge source="partie.Partie" target="partie.IJoueur" relationship="DEPENDENCY">
+      <point x="24.428571428571445" y="-50.0" />
+      <point x="699.3593835522724" y="486.0" />
+      <point x="750.8593835522724" y="486.0" />
+      <point x="750.8593835522724" y="325.0" />
+      <point x="625.3708093869732" y="325.0" />
+      <point x="33.0" y="15.5" />
+    </edge>
+    <edge source="piece.Roi" target="table.Plateau" relationship="DEPENDENCY">
+      <point x="10.571428571428555" y="-15.5" />
+      <point x="464.60425218938076" y="1117.0" />
+      <point x="660.085095101259" y="1117.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="table.IPièce" target="partie.Coup" relationship="DEPENDENCY">
+      <point x="25.5" y="-50.0" />
+      <point x="701.7279522441161" y="678.0" />
+      <point x="812.4856834975371" y="678.0" />
+      <point x="812.4856834975371" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="table.IPièce" target="table.Plateau" relationship="DEPENDENCY">
+      <point x="-25.5" y="50.0" />
+      <point x="650.7279522441161" y="831.0" />
+      <point x="627.4779522441161" y="831.0" />
+      <point x="627.4779522441161" y="871.0" />
+      <point x="660.085095101259" y="871.0" />
+      <point x="0.0" y="-15.5" />
+    </edge>
+    <edge source="Application.PieceFactory" target="piece.Tour" relationship="CREATE">
+      <point x="-33.75" y="-15.5" />
+      <point x="614.4243808155446" y="1245.0" />
+      <point x="154.875" y="1245.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="piece.Roi" target="piece.Pièce" relationship="GENERALIZATION">
+      <point x="-31.714285714285722" y="-15.5" />
+      <point x="422.31853790366654" y="1137.0" />
+      <point x="376.5736692665581" y="1137.0" />
+      <point x="376.5736692665581" y="1117.0" />
+      <point x="253.5736692665581" y="1117.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="piece.Roi" target="partie.Coup" relationship="CREATE">
+      <point x="-21.14285714285711" y="-15.5" />
+      <point x="432.8899664750951" y="1127.0" />
+      <point x="387.0736692665581" y="1127.0" />
+      <point x="387.0736692665581" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="piece.Pièce" target="table.IPièce" relationship="REALIZATION">
+      <point x="58.28571428571428" y="-50.0" />
+      <point x="311.8593835522724" y="965.0" />
+      <point x="315.0136665298303" y="965.0" />
+      <point x="315.0136665298303" y="871.0" />
+      <point x="599.7279522441161" y="871.0" />
+      <point x="-76.5" y="50.0" />
+    </edge>
+    <edge source="piece.Tour" target="partie.Coordonnées" relationship="CREATE">
+      <point x="-85.0" y="-28.0" />
+      <point x="69.875" y="1137.0" />
+      <point x="93.69996921182292" y="1137.0" />
+      <point x="93.69996921182292" y="108.0" />
+      <point x="789.7165264094153" y="108.0" />
+      <point x="789.7165264094153" y="98.0" />
+      <point x="493.9665264094153" y="98.0" />
+      <point x="35.0" y="39.0" />
+    </edge>
+    <edge source="partie.Partie" target="joueur.Humain" relationship="CREATE">
+      <point x="0.0" y="-50.0" />
+      <point x="674.930812123701" y="506.0" />
+      <point x="688.3593835522724" y="506.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="partie.Partie" target="partie.Coordonnées" relationship="CREATE">
+      <point x="73.28571428571422" y="-50.0" />
+      <point x="748.2165264094152" y="506.0" />
+      <point x="801.4856834975371" y="506.0" />
+      <point x="801.4856834975371" y="108.0" />
+      <point x="789.7165264094153" y="108.0" />
+      <point x="789.7165264094153" y="98.0" />
+      <point x="493.9665264094153" y="98.0" />
+      <point x="35.0" y="39.0" />
+    </edge>
+    <edge source="piece.Tour" target="table.Couleur" relationship="DEPENDENCY">
+      <point x="-17.0" y="-28.0" />
+      <point x="137.875" y="1137.0" />
+      <point x="115.69996921182292" y="1137.0" />
+      <point x="115.69996921182292" y="678.0" />
+      <point x="282.50224069512956" y="678.0" />
+      <point x="282.50224069512956" y="506.0" />
+      <point x="443.91006431308176" y="506.0" />
+      <point x="443.91006431308176" y="496.0" />
+      <point x="423.3236692665581" y="496.0" />
+      <point x="-25.75" y="15.5" />
+    </edge>
+    <edge source="Application.appli" target="partie.Partie" relationship="CREATE">
+      <point x="-28.66666666666663" y="-15.5" />
+      <point x="644.1743808155447" y="1338.0" />
+      <point x="25.999999999999943" y="1338.0" />
+      <point x="26.0" y="688.0" />
+      <point x="443.6957785987961" y="688.0" />
+      <point x="443.6957785987961" y="648.0" />
+      <point x="632.180812123701" y="648.0" />
+      <point x="-42.75" y="50.0" />
+    </edge>
+    <edge source="table.IPièce" target="partie.Coordonnées" relationship="DEPENDENCY">
+      <point x="76.49999999999997" y="-50.0" />
+      <point x="752.7279522441161" y="688.0" />
+      <point x="850.6607142857143" y="688.0" />
+      <point x="850.6607142857143" y="108.0" />
+      <point x="789.7165264094153" y="108.0" />
+      <point x="789.7165264094153" y="98.0" />
+      <point x="493.9665264094153" y="98.0" />
+      <point x="35.0" y="39.0" />
+    </edge>
+    <edge source="joueur.IA" target="partie.Coup" relationship="DEPENDENCY">
+      <point x="-16.5" y="-15.5" />
+      <point x="211.50224069512956" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="partie.Partie" target="partie.IJoueur" relationship="TO_MANY">
+      <point x="-24.428571428571445" y="-50.0" />
+      <point x="650.5022406951296" y="486.0" />
+      <point x="592.3708093869732" y="486.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="piece.Roi" target="table.Couleur" relationship="DEPENDENCY">
+      <point x="-10.571428571428555" y="-15.5" />
+      <point x="443.46139504652365" y="1117.0" />
+      <point x="433.12435002736754" y="1117.0" />
+      <point x="433.12435002736754" y="506.0" />
+      <point x="443.91006431308176" y="506.0" />
+      <point x="443.91006431308176" y="496.0" />
+      <point x="423.3236692665581" y="496.0" />
+      <point x="-25.75" y="15.5" />
+    </edge>
+    <edge source="piece.Tour" target="piece.Pièce" relationship="GENERALIZATION">
+      <point x="85.0" y="-28.0" />
+      <point x="239.875" y="1137.0" />
+      <point x="376.5736692665581" y="1137.0" />
+      <point x="376.5736692665581" y="1117.0" />
+      <point x="253.5736692665581" y="1117.0" />
+      <point x="0.0" y="50.0" />
+    </edge>
+    <edge source="piece.Pièce" target="partie.Coup" relationship="DEPENDENCY">
+      <point x="-29.14285714285711" y="-50.0" />
+      <point x="224.430812123701" y="945.0" />
+      <point x="271.50224069512956" y="945.0" />
+      <point x="271.50224069512956" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="table.Plateau" target="partie.Coup" relationship="DEPENDENCY">
+      <point x="-14.428571428571445" y="-15.5" />
+      <point x="645.6565236726874" y="841.0" />
+      <point x="511.0736692665581" y="841.0" />
+      <point x="511.0736692665581" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="joueur.Humain" target="joueur.Joueur" relationship="GENERALIZATION">
+      <point x="-26.0" y="-15.5" />
+      <point x="662.3593835522724" y="408.0" />
+      <point x="449.0736692665581" y="408.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="Application.PieceFactory" target="table.IPièce" relationship="DEPENDENCY">
+      <point x="33.75" y="-15.5" />
+      <point x="681.9243808155446" y="1245.0" />
+      <point x="894.2321428571429" y="1245.0" />
+      <point x="894.2321428571429" y="871.0" />
+      <point x="861.6607142857143" y="871.0" />
+      <point x="861.6607142857143" y="851.0" />
+      <point x="752.7279522441161" y="851.0" />
+      <point x="76.5" y="50.0" />
+    </edge>
+    <edge source="piece.Tour" target="table.Plateau" relationship="DEPENDENCY">
+      <point x="51.0" y="-28.0" />
+      <point x="205.875" y="1127.0" />
+      <point x="366.0736692665581" y="1127.0" />
+      <point x="366.0736692665581" y="965.0" />
+      <point x="660.085095101259" y="965.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="piece.Pièce" target="partie.Coordonnées" relationship="DEPENDENCY">
+      <point x="-58.28571428571428" y="-50.0" />
+      <point x="195.28795498084384" y="955.0" />
+      <point x="155.73568349753725" y="955.0" />
+      <point x="155.73568349753725" y="108.0" />
+      <point x="789.7165264094153" y="108.0" />
+      <point x="789.7165264094153" y="98.0" />
+      <point x="493.9665264094153" y="98.0" />
+      <point x="35.0" y="39.0" />
+    </edge>
+    <edge source="table.IPièce" target="table.Couleur" relationship="DEPENDENCY">
+      <point x="-25.5" y="-50.0" />
+      <point x="650.7279522441161" y="658.0" />
+      <point x="578.930812123701" y="658.0" />
+      <point x="578.930812123701" y="506.0" />
+      <point x="443.91006431308176" y="506.0" />
+      <point x="443.91006431308176" y="496.0" />
+      <point x="423.3236692665581" y="496.0" />
+      <point x="-25.75" y="15.5" />
+    </edge>
+    <edge source="partie.Partie" target="table.Plateau" relationship="DEPENDENCY">
+      <point x="42.75" y="50.0" />
+      <point x="717.680812123701" y="668.0" />
+      <point x="529.930812123701" y="668.0" />
+      <point x="529.930812123701" y="831.0" />
+      <point x="627.4779522441161" y="831.0" />
+      <point x="627.4779522441161" y="871.0" />
+      <point x="660.085095101259" y="871.0" />
+      <point x="0.0" y="-15.5" />
+    </edge>
+    <edge source="table.Plateau" target="partie.Partie" relationship="DEPENDENCY">
+      <point x="-43.28571428571422" y="-15.5" />
+      <point x="616.7993808155447" y="861.0" />
+      <point x="452.2165264094153" y="861.0" />
+      <point x="452.2165264094153" y="688.0" />
+      <point x="443.6957785987961" y="688.0" />
+      <point x="443.6957785987961" y="648.0" />
+      <point x="632.180812123701" y="648.0" />
+      <point x="-42.75" y="50.0" />
+    </edge>
+    <edge source="Application.PieceFactory" target="table.Plateau" relationship="DEPENDENCY">
+      <point x="11.25" y="-15.5" />
+      <point x="659.4243808155446" y="1235.0" />
+      <point x="883.2321428571429" y="1235.0" />
+      <point x="883.2321428571429" y="965.0" />
+      <point x="660.085095101259" y="965.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="piece.Roi" target="partie.Coordonnées" relationship="CREATE">
+      <point x="31.714285714285666" y="-15.5" />
+      <point x="485.74710933223787" y="1137.0" />
+      <point x="872.2321428571429" y="1137.0" />
+      <point x="872.2321428571429" y="108.0" />
+      <point x="789.7165264094153" y="108.0" />
+      <point x="789.7165264094153" y="98.0" />
+      <point x="493.9665264094153" y="98.0" />
+      <point x="35.0" y="39.0" />
+    </edge>
+    <edge source="piece.Tour" target="partie.Coup" relationship="CREATE">
+      <point x="-51.0" y="-28.0" />
+      <point x="104.69996921182292" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="table.IPièce" target="partie.Partie" relationship="DEPENDENCY">
+      <point x="-76.5" y="-50.0" />
+      <point x="599.7279522441161" y="688.0" />
+      <point x="443.6957785987961" y="688.0" />
+      <point x="443.6957785987961" y="648.0" />
+      <point x="632.180812123701" y="648.0" />
+      <point x="-42.75" y="50.0" />
+    </edge>
+    <edge source="partie.Partie" target="partie.Coup" relationship="CREATE">
+      <point x="48.85714285714289" y="-50.0" />
+      <point x="723.7879549808439" y="496.0" />
+      <point x="761.8593835522724" y="496.0" />
+      <point x="761.8593835522724" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="partie.Partie" target="table.Couleur" relationship="DEPENDENCY">
+      <point x="-73.28571428571422" y="-50.0" />
+      <point x="601.6450978379868" y="506.0" />
+      <point x="443.91006431308176" y="506.0" />
+      <point x="443.91006431308176" y="496.0" />
+      <point x="423.3236692665581" y="496.0" />
+      <point x="-25.75" y="15.5" />
+    </edge>
+    <edge source="joueur.Joueur" target="partie.IJoueur" relationship="REALIZATION">
+      <point x="23.75" y="-15.5" />
+      <point x="472.8236692665581" y="325.0" />
+      <point x="559.3708093869732" y="325.0" />
+      <point x="-33.0" y="15.5" />
+    </edge>
+    <edge source="piece.Pièce" target="table.Couleur" relationship="TO_ONE">
+      <point x="29.142857142857167" y="-50.0" />
+      <point x="282.7165264094153" y="965.0" />
+      <point x="304.0136665298303" y="965.0" />
+      <point x="304.0136665298303" y="678.0" />
+      <point x="474.2165264094153" y="678.0" />
+      <point x="25.75" y="15.5" />
+    </edge>
+    <edge source="partie.Coup" target="partie.Coordonnées" relationship="DEPENDENCY">
+      <point x="39.5" y="-39.0" />
+      <point x="505.6986692665581" y="108.0" />
+      <point x="789.7165264094153" y="108.0" />
+      <point x="789.7165264094153" y="98.0" />
+      <point x="493.9665264094153" y="98.0" />
+      <point x="35.0" y="39.0" />
+    </edge>
+    <edge source="joueur.Humain" target="partie.Coup" relationship="CREATE">
+      <point x="26.0" y="-15.5" />
+      <point x="714.3593835522724" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="piece.Tour" target="partie.Partie" relationship="DEPENDENCY">
+      <point x="17.0" y="-28.0" />
+      <point x="171.875" y="1127.0" />
+      <point x="126.69996921182292" y="1127.0" />
+      <point x="126.69996921182292" y="688.0" />
+      <point x="443.6957785987961" y="688.0" />
+      <point x="443.6957785987961" y="648.0" />
+      <point x="632.180812123701" y="648.0" />
+      <point x="-42.75" y="50.0" />
+    </edge>
+    <edge source="table.Plateau" target="table.Couleur" relationship="DEPENDENCY">
+      <point x="-28.85714285714289" y="-15.5" />
+      <point x="631.2279522441161" y="851.0" />
+      <point x="463.2165264094153" y="851.0" />
+      <point x="463.2165264094153" y="506.0" />
+      <point x="443.91006431308176" y="506.0" />
+      <point x="443.91006431308176" y="496.0" />
+      <point x="423.3236692665581" y="496.0" />
+      <point x="-25.75" y="15.5" />
+    </edge>
+    <edge source="Application.PieceFactory" target="table.Couleur" relationship="DEPENDENCY">
+      <point x="-56.25" y="-15.5" />
+      <point x="591.9243808155446" y="1255.0" />
+      <point x="42.375" y="1255.0" />
+      <point x="42.375" y="668.0" />
+      <point x="121.19996921182292" y="668.0" />
+      <point x="121.19996921182292" y="506.0" />
+      <point x="443.91006431308176" y="506.0" />
+      <point x="443.91006431308176" y="496.0" />
+      <point x="423.3236692665581" y="496.0" />
+      <point x="-25.75" y="15.5" />
+    </edge>
+    <edge source="Application.appli" target="Application.PieceFactory" relationship="CREATE">
+      <point x="0.0" y="-15.5" />
+      <point x="672.8410474822113" y="1328.0" />
+      <point x="648.1743808155446" y="1328.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="partie.IJoueur" target="partie.Coup" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="592.3708093869732" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="piece.Roi" target="partie.Partie" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="454.0328236179522" y="1107.0" />
+      <point x="443.6957785987961" y="1107.0" />
+      <point x="443.6957785987961" y="648.0" />
+      <point x="632.180812123701" y="648.0" />
+      <point x="-42.75" y="50.0" />
+    </edge>
+    <edge source="Application.PieceFactory" target="partie.Coordonnées" relationship="CREATE">
+      <point x="56.25" y="-15.5" />
+      <point x="704.4243808155446" y="1255.0" />
+      <point x="905.2321428571429" y="1255.0" />
+      <point x="905.2321428571429" y="108.0" />
+      <point x="789.7165264094153" y="108.0" />
+      <point x="789.7165264094153" y="98.0" />
+      <point x="493.9665264094153" y="98.0" />
+      <point x="35.0" y="39.0" />
+    </edge>
+    <edge source="joueur.Joueur" target="partie.Coup" relationship="DEPENDENCY">
+      <point x="-23.75" y="-15.5" />
+      <point x="425.3236692665581" y="325.0" />
+      <point x="454.497109332238" y="325.0" />
+      <point x="454.497109332238" y="242.0" />
+      <point x="466.1986692665581" y="242.0" />
+      <point x="0.0" y="39.0" />
+    </edge>
+    <edge source="joueur.IA" target="joueur.Joueur" relationship="GENERALIZATION">
+      <point x="16.5" y="-15.5" />
+      <point x="244.50224069512956" y="408.0" />
+      <point x="449.0736692665581" y="408.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="Application.appli" target="table.Plateau" relationship="CREATE">
+      <point x="28.66666666666663" y="-15.5" />
+      <point x="701.507714148878" y="1338.0" />
+      <point x="916.2321428571429" y="1338.0" />
+      <point x="916.2321428571429" y="965.0" />
+      <point x="660.085095101259" y="965.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="Application.PieceFactory" target="piece.Roi" relationship="CREATE">
+      <point x="-11.25" y="-15.5" />
+      <point x="636.9243808155446" y="1235.0" />
+      <point x="454.0328236179522" y="1235.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="table.Plateau" target="partie.Coordonnées" relationship="DEPENDENCY">
+      <point x="28.85714285714289" y="-15.5" />
+      <point x="688.9422379584018" y="861.0" />
+      <point x="850.6607142857143" y="861.0" />
+      <point x="850.6607142857143" y="108.0" />
+      <point x="789.7165264094153" y="108.0" />
+      <point x="789.7165264094153" y="98.0" />
+      <point x="493.9665264094153" y="98.0" />
+      <point x="35.0" y="39.0" />
+    </edge>
+    <edge source="piece.Pièce" target="partie.Coordonnées" relationship="TO_ONE">
+      <point x="-87.42857142857139" y="-50.0" />
+      <point x="166.14509783798673" y="965.0" />
+      <point x="144.73568349753725" y="965.0" />
+      <point x="144.73568349753725" y="118.0" />
+      <point x="318.85938355227245" y="118.0" />
+      <point x="318.85938355227245" y="98.0" />
+      <point x="423.96652640941534" y="98.0" />
+      <point x="-35.0" y="39.0" />
+    </edge>
+    <edge source="piece.Pièce" target="table.Plateau" relationship="DEPENDENCY">
+      <point x="87.4285714285715" y="-50.0" />
+      <point x="341.0022406951296" y="965.0" />
+      <point x="660.085095101259" y="965.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="piece.Roi" target="table.IPièce" relationship="DEPENDENCY">
+      <point x="21.14285714285711" y="-15.5" />
+      <point x="475.1756807608093" y="1127.0" />
+      <point x="861.6607142857143" y="1127.0" />
+      <point x="861.6607142857143" y="851.0" />
+      <point x="752.7279522441161" y="851.0" />
+      <point x="76.5" y="50.0" />
+    </edge>
+    <edge source="table.Plateau" target="table.IPièce" relationship="CREATE">
+      <point x="43.285714285714334" y="-15.5" />
+      <point x="703.3708093869732" y="871.0" />
+      <point x="861.6607142857143" y="871.0" />
+      <point x="861.6607142857143" y="851.0" />
+      <point x="752.7279522441161" y="851.0" />
+      <point x="76.5" y="50.0" />
+    </edge>
+    <edge source="partie.Coup" target="partie.Coordonnées" relationship="TO_ONE">
+      <point x="-39.5" y="-39.0" />
+      <point x="426.6986692665581" y="118.0" />
+      <point x="318.85938355227245" y="118.0" />
+      <point x="318.85938355227245" y="98.0" />
+      <point x="423.96652640941534" y="98.0" />
+      <point x="-35.0" y="39.0" />
+    </edge>
+    <edge source="partie.Partie" target="table.Couleur" relationship="TO_ONE">
+      <point x="-48.85714285714289" y="-50.0" />
+      <point x="626.0736692665581" y="496.0" />
+      <point x="474.2165264094153" y="496.0" />
+      <point x="25.75" y="15.5" />
+    </edge>
+    <edge source="piece.Pièce" target="table.Couleur" relationship="DEPENDENCY">
+      <point x="5.6843418860808015E-14" y="-50.0" />
+      <point x="253.57366926655817" y="955.0" />
+      <point x="282.50224069512956" y="955.0" />
+      <point x="282.50224069512956" y="506.0" />
+      <point x="443.91006431308176" y="506.0" />
+      <point x="443.91006431308176" y="496.0" />
+      <point x="423.3236692665581" y="496.0" />
+      <point x="-25.75" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.6999999999999998" showDependencies="true" x="357.1875" y="293.85714285714295" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

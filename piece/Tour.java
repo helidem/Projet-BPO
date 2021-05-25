@@ -78,10 +78,7 @@ public class Tour extends Pièce {
         return true;
     }
 
-    /**
-     *
-     * @return
-     */
+
     public boolean craintEchec() {
         return false;
     }
@@ -101,6 +98,11 @@ public class Tour extends Pièce {
         return null;
     }
 
+    /**
+     * Donne la liste des coups possibles de cette pièce
+     * @param p le plateau
+     * @return la liste des coups possibles
+     */
     public ArrayList<Coup> coupsPossibles(Plateau p){
         Coup coup = new Coup();
         ArrayList<Coup> coups = new ArrayList<>();

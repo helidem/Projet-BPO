@@ -40,7 +40,7 @@ public class Partie {
 
     /**
      * Commencer une Partie
-     * @param p partie
+     * @param p la partie
      */
     public void commencer(Plateau p) {
         System.out.println(p);
@@ -76,11 +76,11 @@ public class Partie {
     }
 
     /**
-     *
+     * Décompose le coup et retourne si il est bien entré
      * @param ligne entrée du joueur
-     * @param coup
+     * @param[in-out] coup le coup crée si la fonction retourne true
      * @param p plateau
-     * @return
+     * @return true si il est syntaxiquement correct
      */
     private boolean décomposer(String ligne, Coup coup, Plateau p) {
         ligne.toLowerCase();

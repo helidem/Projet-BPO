@@ -17,6 +17,12 @@ public class Roi extends Pièce { //un roi est une pièce
         super( c, coordonnées,"r");
     }
 
+    /**
+     * Permet de savoir si le coup est légal
+     * @param coord les coordonnées où la pièce va être placée
+     * @param p le plateau
+     * @return retourne true si le coup est légal
+     */
     public boolean coupLegal(Coordonnées coord, Plateau p) {
 
     boolean ok = ((getCoordonnées().getX() - coord.getX() <= 1 && getCoordonnées().getY() - coord.getY() <= 1) && (getCoordonnées().getY() - coord.getX() >= -1 && getCoordonnées().getY() - coord.getY() >= -1)) &&
@@ -40,8 +46,8 @@ public class Roi extends Pièce { //un roi est une pièce
     }
 
     /**
-     *
-     * @return si la pièce est un roi
+     * Permet de savoir si la pièce craint l'echec
+     * @return True si la pièce est un roi
      */
     public boolean craintEchec(){
         return true;
@@ -65,10 +71,10 @@ public class Roi extends Pièce { //un roi est une pièce
     }
 
     /**
-     * Verifie si le roi est en enchec et Mac
-     * @param p
-     * @param partie
-     * @return
+     * Verifie si le roi est en enchec et Mat
+     * @param p le plateau
+     * @param partie la partie
+     * @return true si le roi est en échec, sinon false
      */
     public boolean enEchecEtMat(Plateau p, Partie partie){
         ArrayList<IPièce> pièces = p.pièces(getCouleur());
@@ -89,6 +95,11 @@ public class Roi extends Pièce { //un roi est une pièce
     }
 
 
+    /**
+     * Donne la liste des coups possibles de cette pièce
+     * @param p le plateau
+     * @return la liste des coups possibles
+     */
     public ArrayList<Coup> coupsPossibles(Plateau p){
         Coup coup = new Coup();
         ArrayList<Coup> coups = new ArrayList<>();
@@ -127,6 +138,4 @@ public class Roi extends Pièce { //un roi est une pièce
         }
         return coups;
     }
-
-
 }

@@ -7,7 +7,6 @@ import table.IPièce;
 import table.Plateau;
 import java.util.ArrayList;
 
-
 public abstract class  Pièce implements IPièce {
 
     private Couleur couleur;
@@ -43,7 +42,12 @@ public abstract class  Pièce implements IPièce {
 
     public abstract boolean enEchec(Plateau p);
 
-   /*public String afficherCoups(Plateau p){
+    /**
+     * Permet d'afficher la liste des coups possibles de la pièce
+     * @param p el plateau
+     * @return la chaine de caractère représentant la liste des coups
+     */
+   public String afficherCoups(Plateau p){
        StringBuilder sb = new StringBuilder();
        System.out.println(coupsPossibles(p).size());
        ArrayList<Coup> coups = coupsPossibles(p);
@@ -51,7 +55,7 @@ public abstract class  Pièce implements IPièce {
            sb.append(coup.toString()).append("\n");
        }
        return sb.toString();
-   }*/
+   }
 
     public Coordonnées getAncienneCoord() {
         return ancienneCoord;
@@ -66,6 +70,4 @@ public abstract class  Pièce implements IPièce {
     }
 
     public abstract ArrayList<Coup> coupsPossibles(Plateau p);
-
-
 }

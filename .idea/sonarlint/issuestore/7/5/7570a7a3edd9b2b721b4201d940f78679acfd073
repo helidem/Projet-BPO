@@ -1,0 +1,37 @@
+
+‚
+java:S1192X"eDefine a constant instead of duplicating this literal "   --- --- --- --- --- --- --- ---
+" 18 times.(õ‹8æÅ³ø™/
+„
+java:S1192W"gDefine a constant instead of duplicating this literal "    a   b   c   d   e   f   g   h    
+" 4 times.(ºƒíå8çÅ³ø™/
+L
+java:S6212"/Declare this local variable with "var" instead.(—ìÃ‹8ïÅ³ø™/
+K
+java:S6212"/Declare this local variable with "var" instead.(æåŒm8ğÅ³ø™/
+X	java:S125"<This block of commented-out lines of code should be removed.(‘Ü°»8ñÅ³ø™/
+]	java:S125 "<This block of commented-out lines of code should be removed.(‹Ëçøÿÿÿÿ8òÅ³ø™/
+L
+java:S6212%"/Declare this local variable with "var" instead.(—ìÃ‹8òÅ³ø™/
+K
+java:S6212&"/Declare this local variable with "var" instead.(æåŒm8òÅ³ø™/
+L
+java:S62121"/Declare this local variable with "var" instead.(Ú¡·8óÅ³ø™/
+Q
+java:S62122"/Declare this local variable with "var" instead.(¡Ñä¿úÿÿÿÿ8ôÅ³ø™/
+L
+java:S62123"/Declare this local variable with "var" instead.(—ìÃ‹8ôÅ³ø™/
+L
+java:S6212B"/Declare this local variable with "var" instead.(Ú¡·8õÅ³ø™/
+Q
+java:S6212C"/Declare this local variable with "var" instead.(¡Ñä¿úÿÿÿÿ8õÅ³ø™/
+L
+java:S6212D"/Declare this local variable with "var" instead.(—ìÃ‹8õÅ³ø™/
+Q
+java:S6212V"/Declare this local variable with "var" instead.(¡Ñä¿úÿÿÿÿ8÷Å³ø™/
+O
+java:S6126W"2Replace this String concatenation with Text block.(ºƒíå8÷Å³ø™/
+L
+java:S6212l"/Declare this local variable with "var" instead.(—ìÃ‹8÷Å³ø™/
+O
+java:S6126o"2Replace this String concatenation with Text block.(“ˆ‰ù8÷Å³ø™/

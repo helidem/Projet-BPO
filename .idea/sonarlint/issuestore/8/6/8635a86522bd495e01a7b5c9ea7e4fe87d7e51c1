@@ -1,0 +1,63 @@
+
+Z	java:S106."9Replace this use of System.out or System.err by a logger.(úõ–áùÿÿÿÿ8Ã‡¼¡š/
+Q
+java:S6212/"/Declare this local variable with "var" instead.(ù ƒ‘üÿÿÿÿ8Ä‡¼¡š/
+U	java:S1060"9Replace this use of System.out or System.err by a logger.(¿è®Î8Ç‡¼¡š/
+Z	java:S1061"9Replace this use of System.out or System.err by a logger.(›Äæ÷üÿÿÿÿ8Ç‡¼¡š/
+K
+java:S62125"/Declare this local variable with "var" instead.(ÍQ8Ç‡¼¡š/
+U	java:S1067"9Replace this use of System.out or System.err by a logger.(»€’À8È‡¼¡š/
+U	java:S106:"9Replace this use of System.out or System.err by a logger.(»€’À8È‡¼¡š/
+Z	java:S106="9Replace this use of System.out or System.err by a logger.(°ï‰‹ùÿÿÿÿ8È‡¼¡š/
+U	java:S106A"9Replace this use of System.out or System.err by a logger.(¿è®Î8É‡¼¡š/
+Z	java:S106B"9Replace this use of System.out or System.err by a logger.(úõ–áùÿÿÿÿ8É‡¼¡š/
+Z	java:S106F"9Replace this use of System.out or System.err by a logger.(›Äæ÷üÿÿÿÿ8É‡¼¡š/
+Z	java:S106I"9Replace this use of System.out or System.err by a logger.(úõ–áùÿÿÿÿ8É‡¼¡š/
+h	java:S100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µù±şÿÿÿÿ
+=
+java:S1659]""Declare "var1" on a separate line.(Éæ¹«ıÿÿÿÿ
+=
+java:S1659]""Declare "var2" on a separate line.(Éæ¹«ıÿÿÿÿ
+=
+java:S1659]""Declare "var3" on a separate line.(Éæ¹«ıÿÿÿÿ
+J
+java:S2201V"/The return value of "toLowerCase" must be used.(’‹¿•şÿÿÿÿ
+U
+java:S6213]":Rename this variable to not match a restricted identifier.(Éæ¹«ıÿÿÿÿ
+E
+java:S6212z"/Declare this local variable with "var" instead.(çõ¾È
+E
+java:S6212{"/Declare this local variable with "var" instead.(Ï‡­”
+X
+java:S1126ƒ"AReplace this if-then-else statement by a single return statement.(ÍØ€
+S	java:S106."9Replace this use of System.out or System.err by a logger.(úõ–áùÿÿÿÿ
+J
+java:S6212/"/Declare this local variable with "var" instead.(ù ƒ‘üÿÿÿÿ
+N	java:S1060"9Replace this use of System.out or System.err by a logger.(¿è®Î
+S	java:S1061"9Replace this use of System.out or System.err by a logger.(›Äæ÷üÿÿÿÿ
+D
+java:S62125"/Declare this local variable with "var" instead.(ÍQ
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(»€’À
+N	java:S106:"9Replace this use of System.out or System.err by a logger.(»€’À
+S	java:S106="9Replace this use of System.out or System.err by a logger.(°ï‰‹ùÿÿÿÿ
+N	java:S106A"9Replace this use of System.out or System.err by a logger.(¿è®Î
+S	java:S106B"9Replace this use of System.out or System.err by a logger.(úõ–áùÿÿÿÿ
+S	java:S106F"9Replace this use of System.out or System.err by a logger.(›Äæ÷üÿÿÿÿ
+S	java:S106I"9Replace this use of System.out or System.err by a logger.(úõ–áùÿÿÿÿ
+h	java:S100U"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µù±şÿÿÿÿ
+=
+java:S1659]""Declare "var1" on a separate line.(Éæ¹«ıÿÿÿÿ
+=
+java:S1659]""Declare "var2" on a separate line.(Éæ¹«ıÿÿÿÿ
+=
+java:S1659]""Declare "var3" on a separate line.(Éæ¹«ıÿÿÿÿ
+J
+java:S2201V"/The return value of "toLowerCase" must be used.(’‹¿•şÿÿÿÿ
+U
+java:S6213]":Rename this variable to not match a restricted identifier.(Éæ¹«ıÿÿÿÿ
+E
+java:S6212z"/Declare this local variable with "var" instead.(çõ¾È
+E
+java:S6212{"/Declare this local variable with "var" instead.(Ï‡­”
+X
+java:S1126ƒ"AReplace this if-then-else statement by a single return statement.(ÍØ€

@@ -69,8 +69,6 @@ class PièceTest {
             r.annulerCoup();
            assertTrue(r.getCoordonnées().getX() == new Coordonnées(4,5).getX());
            assertTrue(r.getCoordonnées().getY() == new Coordonnées(4,5).getY());
-
-
         }
 
         @Test
@@ -93,7 +91,6 @@ class PièceTest {
             assertTrue(roi.enEchec(plateau));
             plateau.put(roi,new Coordonnées(6,3));
             assertFalse(roi.enEchec(plateau));
-
         }
 
         @Test

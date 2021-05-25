@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Roi extends Pièce { //un roi est une pièce
 
 
-    public Roi(Coordonnées coordonnées, Couleur c) { //Pièce p = new Roi(1,1,Couleur.BLANC);
+    public Roi(Coordonnées coordonnées, Couleur c) {
         super( c, coordonnées,"r");
     }
 

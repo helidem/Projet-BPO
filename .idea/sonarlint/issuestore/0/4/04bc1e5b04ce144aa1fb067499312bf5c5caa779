@@ -1,0 +1,51 @@
+
+‡
+java:S1319Æ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ôï®á
+†
+java:S1319×"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¿¥¥/
+K
+java:S1066ì"/Merge this if statement with the enclosing one.(±óì øÿÿÿÿ
++
+java:S1700"Rename field "plateau"(‘ƒÉ
+a
+java:S2259B"EA "NullPointerException" could be thrown; "getRoi()" can return null.(Ú¤óR8ï†¼¡š/
+b
+java:S2259<"EA "NullPointerException" could be thrown; "getRoi()" can return null.(ÄùäÅ8ï†¼¡š/
+b
+java:S22596"EA "NullPointerException" could be thrown; "getRoi()" can return null.(ÄùäÅ8ï†¼¡š/
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¾„©·
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Šé¾À
+Z	java:S106*"9Replace this use of System.out or System.err by a logger.(Ã„Öýøÿÿÿÿ8÷†¼¡š/
+Z	java:S106,"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ8ø†¼¡š/
+B
+java:S3457C"%String contains no format specifiers.(íÎªª8ú†¼¡š/
+U	java:S106C"9Replace this use of System.out or System.err by a logger.(íÎªª8ú†¼¡š/
+Z	java:S106["9Replace this use of System.out or System.err by a logger.(Ã„Öýøÿÿÿÿ8ý†¼¡š/
+Z	java:S106]"9Replace this use of System.out or System.err by a logger.(ÞžÒ—üÿÿÿÿ8ý†¼¡š/
+o	java:S100p"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Í×Ö¹úÿÿÿÿ8þ†¼¡š/
+j	java:S100t"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ä¤ý8ÿ†¼¡š/
+k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(î—ß¶8€‡¼¡š/
+M
+java:S6212˜"/Declare this local variable with "var" instead.(˜êÞ‰8‡¼¡š/
+K
+java:S6212ž"/Declare this local variable with "var" instead.(ÊÌšÚûÿÿÿÿ
+i	java:S100°"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÜÚ‘¸ûÿÿÿÿ
+]
+java:S1126²"AReplace this if-then-else statement by a single return statement.(ùÞ‚àøÿÿÿÿ
+i	java:S100¹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¾—Òþÿÿÿÿ
+]
+java:S1126»"AReplace this if-then-else statement by a single return statement.(¯ýç¯úÿÿÿÿ
+d	java:S100Æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôï®á
+F
+java:S6212È"/Declare this local variable with "var" instead.(‘·Òí
+F
+java:S6212É"/Declare this local variable with "var" instead.(‚º®‚
+c	java:S100×"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿¥¥/
+F
+java:S6212Ù"/Declare this local variable with "var" instead.(‘·Òí
+F
+java:S6212Ú"/Declare this local variable with "var" instead.(‚º®‚
+F
+java:S6212é"/Declare this local variable with "var" instead.(‘·Òí
+M
+java:S6212ê"/Declare this local variable with "var" instead.(‚º®‚8ˆ‡¼¡š/

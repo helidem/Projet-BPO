@@ -1,0 +1,20 @@
+
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 58 to the 15 allowed.(õúèÍûÿÿÿÿ
+X	java:S125"<This block of commented-out lines of code should be removed.(Îú–Ó8½ÃéÎ™/
+W	java:S125 "<This block of commented-out lines of code should be removed.(Ö®òY8¾ÃéÎ™/
+9
+java:S1116$"Remove this empty statement.(ÿ…÷ß8®òËÕ™/
+]	java:S125'"<This block of commented-out lines of code should be removed.(îàÁµùÿÿÿÿ8½™¦Ğ™/
+]	java:S125*"<This block of commented-out lines of code should be removed.(ÚÇ­ûùÿÿÿÿ8¬¡êÎ™/
+]	java:S125/"<This block of commented-out lines of code should be removed.(¯îúÿÿÿÿ8¬¡êÎ™/
+]	java:S1252"<This block of commented-out lines of code should be removed.(ÚÇ­ûùÿÿÿÿ8­¡êÎ™/
+W	java:S1259"<This block of commented-out lines of code should be removed.(Î§ŸK8­¡êÎ™/
+]	java:S125<"<This block of commented-out lines of code should be removed.(ÚÇ­ûùÿÿÿÿ8®¡êÎ™/
+]	java:S125A"<This block of commented-out lines of code should be removed.(¼¹Òùÿÿÿÿ8®¡êÎ™/
+]	java:S125D"<This block of commented-out lines of code should be removed.(ÚÇ­ûùÿÿÿÿ8ŸÈ¦Ğ™/
+]	java:S125K"<This block of commented-out lines of code should be removed.(Ù¨³éÿÿÿÿÿ8½º“Ô™/
+D
+java:S6212k"/Declare this local variable with "var" instead.(ÍQ
+J
+java:S6212n"/Declare this local variable with "var" instead.(ã´™…ùÿÿÿÿ

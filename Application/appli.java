@@ -1,14 +1,7 @@
 package Application;
 
-
-import partie.Coordonnées;
-
 import partie.Partie;
-import table.Couleur;
-import table.IPièce;
 import table.Plateau;
-
-
 
 public class appli {
     public static void main(String[] args) {
@@ -18,19 +11,11 @@ public class appli {
 
         /*--------------PLACER ICI LES PIECES--------------
 
-
         exemple : pf.getRoi(1,1,Couleur.BLANC);
 
 
-
-
-
-         */
-
+         --------------PLACER ICI LES PIECES--------------*/
         pf.defaut(p);
-
         partie.commencer(p);
-
-        //TODO : pour detecter si le roi est en danger : pour chaque mouvement, regarder dans sa trajectoire le type de la piece si c'est un roi adverse
     }
 }

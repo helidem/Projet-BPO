@@ -1,10 +1,8 @@
 package table;
 
-
 import partie.Coordonnées;
 import partie.Coup;
 import partie.Partie;
-
 import java.util.ArrayList;
 
 public class Plateau {
@@ -36,6 +34,7 @@ public class Plateau {
         if(p ==null){
             return false;
         }
+
         p.memoriser();
 
         if (caseOccupée(p.getCoordonnées()))
@@ -64,7 +63,7 @@ public class Plateau {
         removePièce(p);
         put(p, coup.getArrivée());
         if(getRoi(partie.getJoueurAdverse()).enEchecEtMat(this,partie)){
-            System.out.printf("mat");
+            System.out.println("mat");
         }
         return true;
     }

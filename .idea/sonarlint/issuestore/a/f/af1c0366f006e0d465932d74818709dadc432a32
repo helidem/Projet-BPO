@@ -1,0 +1,15 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ó•š¾
+F
+java:S1128"0Remove this unused import 'partie.CoordonnÃ©es'.(°Ïğ
+?
+java:S1128"*Remove this unused import 'table.IPiÃ¨ce'.(÷à¾2
+E
+java:S6212"/Declare this local variable with "var" instead.(Ú¡·
+J
+java:S6212"/Declare this local variable with "var" instead.(¡Ñä¿úÿÿÿÿ
+E
+java:S6212"/Declare this local variable with "var" instead.(—ìÃ‹
+X	java:S125"<This block of commented-out lines of code should be removed.(ÁÙ´ã8¡øõ™/
+M
+java:S1135""2Complete the task associated to this TODO comment.(Íèáóøÿÿÿÿ

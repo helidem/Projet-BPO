@@ -14,10 +14,10 @@ public class Tour extends Pièce {
     }
 
     /**
-     *
-     * @param coord
-     * @param p
-     * @return
+     * Savoir si un coup est légal
+     * @param coord coordonnée de la pièce
+     * @param p plateau
+     * @return true si le coup est juste
      */
     public boolean coupLegal(Coordonnées coord, Plateau p) {
 
@@ -78,6 +78,10 @@ public class Tour extends Pièce {
         return true;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean craintEchec() {
         return false;
     }

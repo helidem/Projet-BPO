@@ -27,6 +27,9 @@ public class Partie {
         return Couleur.values()[Math.abs(1 - courant.ordinal())];
     }
 
+    /**
+     * Changer le joueur courant
+     */
     public void changerJoueur() {
         courant = getJoueurAdverse();
     }
@@ -35,6 +38,10 @@ public class Partie {
         return courant.name();
     }
 
+    /**
+     * Commencer une Partie
+     * @param p partie
+     */
     public void commencer(Plateau p) {
         System.out.println(p);
         Scanner scanner = new Scanner(System.in);
@@ -68,6 +75,13 @@ public class Partie {
         scanner.close();
     }
 
+    /**
+     *
+     * @param ligne entrée du joueur
+     * @param coup
+     * @param p plateau
+     * @return
+     */
     private boolean décomposer(String ligne, Coup coup, Plateau p) {
         ligne.toLowerCase();
 

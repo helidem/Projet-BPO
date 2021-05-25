@@ -39,6 +39,10 @@ public class Roi extends Pièce { //un roi est une pièce
         }
     }
 
+    /**
+     *
+     * @return si la pièce est un roi
+     */
     public boolean craintEchec(){
         return true;
     }
@@ -60,12 +64,18 @@ public class Roi extends Pièce { //un roi est une pièce
         return false;
     }
 
+    /**
+     * Verifie si le roi est en enchec et Mac
+     * @param p
+     * @param partie
+     * @return
+     */
     public boolean enEchecEtMat(Plateau p, Partie partie){
         ArrayList<IPièce> pièces = p.pièces(getCouleur());
         for(int pièce = 0; pièce< pièces.size();pièce++){
             ArrayList<Coup> coups = pièces.get(pièce).coupsPossibles(p);
             for(Coup coup : coups){
-                if(p.jouerTest(coup,partie)){
+                if(p.jouerEchec(coup,partie)){
                     if(!this.enEchec(p)){
                         p.annulerCoup(pièces.get(pièce));
                         return false;

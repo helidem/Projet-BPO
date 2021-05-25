@@ -22,8 +22,8 @@ public class Plateau {
     }
 
     /**
-     * Permet de savoir si le cou peut être joué
-     * @param coup le coup
+     * Permet de jouer un coup
+     * @param coup coup à jouer
      * @param partie la partie en cours
      * @return true si le coup peut être joué, sinon false
      */
@@ -71,7 +71,13 @@ public class Plateau {
         return true;
     }
 
-    public boolean jouerTest(Coup coup, Partie partie) {
+    /**
+     * Jouer un coup
+     * @param coup à jouer
+     * @param partie en cours
+     * @return
+     */
+    public boolean jouerEchec(Coup coup, Partie partie) {
         if(!(coup.getDépart().getX() <8 && coup.getDépart().getX() >=0 && coup.getDépart().getY()<8 &&
                 coup.getDépart().getY()>=0 && coup.getArrivée().getX() <8 && coup.getArrivée().getX() >=0 && coup.getArrivée().getY() <8 && coup.getArrivée().getY()>=0)){
             return false;
@@ -95,6 +101,10 @@ public class Plateau {
         return true;
     }
 
+    /**
+     * Annuler un coup, replace une pièce ses anciennes coorodonnées
+     * @param p pièce
+     */
     public void annulerCoup(IPièce p){
         removePièce(p);
         p.annulerCoup();
@@ -162,7 +172,7 @@ public class Plateau {
 
     /**
      * Savoir si une case est occupée par une pièce
-     * @param coordonnées
+     * @param coordonnées à vérifier
      * @return
      */
     public boolean caseOccupée(Coordonnées coordonnées){
